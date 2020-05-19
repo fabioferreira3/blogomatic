@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles"
 
 export const navMenuItemStyles = () => {
   return makeStyles(theme => ({
@@ -16,5 +16,5 @@ export const navMenuItemStyles = () => {
       alignItems: "center",
       minWidth: "140px",
     },
-  }))();
-};
+  }))()
+}

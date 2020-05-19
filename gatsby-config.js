@@ -5,6 +5,7 @@ module.exports = {
     title: `Blogomatic`,
     description: `Infinite blogs`,
     author: `@fabioferreira_web`,
+    siteUrl: "http://localhost",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -70,7 +71,23 @@ module.exports = {
     //     //trackingId: `ADD YOUR TRACKING ID HERE`,
     //   },
     // },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -105,22 +122,9 @@ module.exports = {
         // If useACF is true, then the source plugin will try to import the WordPress ACF Plugin contents.
         // This feature is untested for sites hosted on wordpress.com.
         // Defaults to true.
-        useACF: false,
-        verboseOutput: false,
-        // Set how many pages are retrieved per API request.
-        perPage: 100,
-        // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
-        includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/menus/v1/menus",
-          "**/menus/v1/locations"
-        ],
+        useACF: true,
+        verboseOutput: true,
+        excludeRoutes: ["**/users"],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

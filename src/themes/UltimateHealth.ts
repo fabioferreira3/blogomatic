@@ -1,6 +1,6 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles"
 
-type PreferenceT = "dark" | "light";
+type PreferenceT = "dark" | "light"
 
 const UltimateHealthTheme = (preference: PreferenceT) => {
   return createMuiTheme({
@@ -24,20 +24,25 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
       fontWeightMedium: 400,
       fontWeightBold: 700,
       h1: {
-        letterSpacing: "1px",
+        letterSpacing: 1,
         fontSize: 55,
         fontWeight: "bold",
         textTransform: "uppercase",
       },
       h2: {
-        fontSize: 50,
+        fontSize: 30,
         fontWeight: 700,
-        letterSpacing: "1px",
+        letterSpacing: 1,
       },
       h3: {
-        fontSize: 35,
+        fontSize: 20,
         fontWeight: 700,
-        letterSpacing: "1px",
+        letterSpacing: 1,
+      },
+      h4: {
+        fontSize: 15,
+        fontWeight: 700,
+        letterSpacing: 1,
       },
       body1: {
         fontWeight: 700,
@@ -62,7 +67,7 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
         },
       },
     },
-  });
-};
+  })
+}
 
-export default UltimateHealthTheme;
+export default UltimateHealthTheme

@@ -1,56 +1,77 @@
 import React from "react"
-import { Typography } from "@material-ui/core";
-import { graphql, useStaticQuery } from "gatsby"
+import { Grid } from "@material-ui/core"
 
 import Seo from "../components/Seo"
 import { App } from "../components/App"
 import { MainLayout } from "../layouts/MainLayout"
+import { useFeaturedPosts } from "../hooks/useFeaturedPosts"
+import { VerticalLargePost } from "../components/Post/VerticalLargePost/VerticalLargePost"
+import { VerticalSmallPost } from "../components/Post/VerticalSmallPost/VerticalSmallPost"
+import { MiniPost } from "../components/Post/MiniPost/MiniPost"
+import { HorizontalPost } from "../components/Post/HorizontalPost/HorizontalPost"
+import { SquarePost } from "../components/Post/SquarePost/SquarePost"
 
 export default () => {
-
-  const siteMetadata = useStaticQuery(graphql`
-      query MyQuery {
-          wordpressSiteMetadata {
-              name
-              home
-              url
-              description
-          }
-      }
-  `)
-
-  const { name: siteTitle } = siteMetadata.wordpressSiteMetadata;
+  const featuredPosts = useFeaturedPosts()
 
   return (
     <App>
       <MainLayout>
         <Seo title="Home" />
-        <Typography variant={"h1"}>{siteTitle}</Typography>
-        {/*<ul style={{ listStyle: "none" }}>*/}
-        {/*  {data.allWordpressPost.edges.map(post => (*/}
-        {/*    <li key={post.node.wordpress_id}>*/}
-        {/*      <Link to={`/post/${post.node.slug}`}>*/}
-        {/*      </Link>*/}
-        {/*      <div>*/}
-        {/*        <Link*/}
-        {/*          to={`/post/${post.node.slug}`}*/}
-        {/*          style={{*/}
-        {/*            // display: "flex",*/}
-        {/*            color: "black",*/}
-        {/*            textDecoration: "none",*/}
-        {/*          }}*/}
-        {/*        > <h3*/}
-        {/*          dangerouslySetInnerHTML={{ __html: post.node.title }}*/}
-        {/*          style={{ fontSize: 33, marginTop:0 }}*/}
-        {/*        /></Link>*/}
-        {/*        <p style={{ margin: 0, color: "grey", fontSize:16, marginTop:8, marginBottom:10 }}>*/}
-        {/*          Written by "author name" && "author date"*/}
-        {/*        </p>*/}
-        {/*        <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />*/}
-        {/*      </div>*/}
-        {/*    </li>*/}
-        {/*  ))}*/}
-        {/*</ul>*/}
+        <Grid container justify={"center"} style={{ marginTop: 160 }}>
+          <Grid item style={{ padding: 20 }} xs={12} md={3}>
+            <Grid container justify={"center"} direction={"column"}>
+              {featuredPosts &&
+                featuredPosts.map((post: any) => {
+                  return <VerticalSmallPost key={post.id} {...post} />
+                })}
+            </Grid>
+          </Grid>
+          <Grid item style={{ padding: 20 }} xs={12} md={6}>
+            <Grid container justify={"center"} direction={"column"}>
+              {featuredPosts &&
+                featuredPosts.map((post: any) => {
+                  return <VerticalLargePost key={post.id} {...post} />
+                })}
+            </Grid>
+          </Grid>
+          <Grid item style={{ padding: 20 }} xs={12} md={3}>
+            <Grid container justify={"center"} direction={"column"}>
+              {featuredPosts &&
+                featuredPosts.map((post: any) => {
+                  return <MiniPost key={post.id} {...post} />
+                })}
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container justify={"center"}>
+          <Grid
+            container
+            item
+            direction={"column"}
+            style={{ padding: 20 }}
+            xs={12}
+            sm={9}
+          >
+            {featuredPosts &&
+              featuredPosts.map((post: any) => {
+                return <HorizontalPost key={post.id} {...post} />
+              })}
+          </Grid>
+          <Grid
+            container
+            direction={"column"}
+            item
+            style={{ padding: 20 }}
+            xs={12}
+            sm={3}
+          >
+            {featuredPosts &&
+              featuredPosts.map((post: any) => {
+                return <SquarePost key={post.id} {...post} />
+              })}
+          </Grid>
+        </Grid>
       </MainLayout>
     </App>
   )

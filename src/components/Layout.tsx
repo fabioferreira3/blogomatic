@@ -3,7 +3,6 @@ import React from "react"
 import { rhythm } from "../utils/typography"
 
 export const Layout: React.FC<any> = ({ children }) => {
-
   return (
     <div
       style={{

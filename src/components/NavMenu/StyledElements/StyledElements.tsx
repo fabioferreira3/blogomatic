@@ -1,33 +1,28 @@
-import { withStyles } from "@material-ui/core/styles";
-import { Button, ListItemIcon, MenuItem } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles"
+import { Button, ListItemIcon, MenuItem } from "@material-ui/core"
 
 export const StyledMenuItem = withStyles(theme => ({
   root: {
     color: theme.palette.text.primary,
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.text.secondary,
-      "& .MuiListItemIcon-root": {
-        color: theme.palette.text.secondary,
-      },
-    },
   },
-}))(MenuItem);
+}))(MenuItem)
 
 export const StyledListItemIcon = withStyles(theme => ({
   root: {
-    minWidth: "40px",
+    minWidth: 40,
     color: theme.palette.text.primary,
   },
-}))(ListItemIcon);
+}))(ListItemIcon)
 
 export const StyledButton = withStyles(theme => ({
   root: {
     width: "100%",
     background: "none",
+    border: 0,
+    boxShadow: "none",
     "&:hover": {
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.text.secondary,
+      background: "transparent",
+      boxShadow: "none",
     },
   },
-}))(Button);
+}))(Button)

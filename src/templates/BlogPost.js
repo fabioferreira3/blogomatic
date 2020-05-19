@@ -16,7 +16,10 @@ const BlogPostTemplate = ({ data }) => {
     <Layout>
       <SEO title={postData.title} description={postData.excerpt} />
       {featuredImg && <Img fixed={featuredImg} />}
-      <h3 style={{ fontSize: 33, marginTop:0 }} dangerouslySetInnerHTML={{ __html: postData.title }} />
+      <h3
+        style={{ fontSize: 33, marginTop: 0 }}
+        dangerouslySetInnerHTML={{ __html: postData.title }}
+      />
       <div dangerouslySetInnerHTML={{ __html: postData.content }} />
     </Layout>
   )
@@ -24,12 +27,12 @@ const BlogPostTemplate = ({ data }) => {
 export default BlogPostTemplate
 
 export const query = graphql`
-    query($id: Int!) {
-        wordpressPost(wordpress_id: { eq: $id }) {
-            title
-            content
-            excerpt
-            date(formatString: "MMMM DD, YYYY")
-        }
+  query($id: Int!) {
+    wordpressPost(wordpress_id: { eq: $id }) {
+      title
+      content
+      excerpt
+      date(formatString: "MMMM DD, YYYY")
     }
+  }
 `
