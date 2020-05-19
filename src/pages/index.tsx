@@ -85,6 +85,20 @@ export default () => {
               )
             })}
         </Grid>
+        <Grid container>
+          {featuredPosts &&
+            featuredPosts.map((post: any) => {
+              return (
+                <Grid item xs={12} sm={4} md={3} style={{ padding: 20 }}>
+                  <VerticalSmallPost
+                    key={post.id}
+                    {...post}
+                    hasOverlay={true}
+                  />
+                </Grid>
+              )
+            })}
+        </Grid>
       </MainLayout>
     </App>
   )

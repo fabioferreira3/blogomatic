@@ -20,5 +20,5 @@ export const Logo: React.FC<any> = () => {
   `)
   const logoImage = rawImageLogoData.wordpressWpLogo.url.localFile
 
-  return <Img fixed={logoImage.childImageSharp.fixed} style={{ height: 90 }} />
+  return <Img fixed={logoImage.childImageSharp.fixed} style={{ width: "100%", height: 90 }} />
 }

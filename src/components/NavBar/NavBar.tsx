@@ -10,7 +10,9 @@ export const NavBar: React.FC = () => {
   return (
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
       <Grid container justify={"center"}>
-        <Logo />
+        <Grid item xs={12} sm={6} md={4}>
+          <Logo />
+        </Grid>
       </Grid>
       <NavMenu />
     </AppBar>
