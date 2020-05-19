@@ -28,19 +28,19 @@ module.exports = {
       resolve: "gatsby-plugin-material-ui",
       options: { stylesProvider: { injectFirst: true } },
     },
-    // {
-    //   resolve: `gatsby-plugin-webfonts`,
-    //   options: {
-    //     fonts: {
-    //       google: [
-    //         {
-    //           family: "Fira Sans",
-    //           variants: ["300", "400", "500"],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Fira Sans",
+              variants: ["300", "400", "500"],
+            },
+          ],
+        },
+      },
+    },
     // {
     //   resolve: `gatsby-transformer-remark`,
     //   options: {

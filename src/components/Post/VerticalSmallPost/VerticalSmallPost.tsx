@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import { Grid, Typography } from "@material-ui/core"
-import ScheduleIcon from "@material-ui/icons/Schedule"
 import Img from "gatsby-image"
 
 import { verticalSmallPostStyles } from "./VerticalSmallPost.styles"
+import { PostTimestamp } from "../../Common/PostTimestamp"
 
 export const VerticalSmallPost: React.FC<any> = props => {
   const classes = verticalSmallPostStyles()
@@ -19,14 +19,11 @@ export const VerticalSmallPost: React.FC<any> = props => {
       {featuredImageSource && (
         <Img
           fluid={featuredImageSource}
-          style={{ width: "100%", maxHeight: 160 }}
+          style={{ width: "100%", maxHeight: 160, borderRadius: 10 }}
         />
       )}
       <Grid container alignItems={"center"} style={{ marginTop: 10 }}>
-        <ScheduleIcon style={{ fontSize: 14 }} />
-        <Typography variant={"body2"} style={{ fontSize: 14, marginLeft: 5 }}>
-          {lastUpdate.formated}
-        </Typography>
+        <PostTimestamp date={lastUpdate.formated} displayIcon={true} />
       </Grid>
       <Typography variant={"h3"} style={{ marginTop: 10, marginBottom: 10 }}>
         {title}

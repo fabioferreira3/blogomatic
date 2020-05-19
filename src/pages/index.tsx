@@ -58,19 +58,32 @@ export default () => {
                 return <HorizontalPost key={post.id} {...post} />
               })}
           </Grid>
-          <Grid
-            container
-            direction={"column"}
-            item
-            style={{ padding: 20 }}
-            xs={12}
-            sm={3}
-          >
+          <Grid container direction={"column"} item xs={12} sm={3}>
             {featuredPosts &&
               featuredPosts.map((post: any) => {
-                return <SquarePost key={post.id} {...post} />
+                return (
+                  <Grid item style={{ height: "25vh", padding: 20 }}>
+                    <SquarePost key={post.id} {...post} hasOverlay={true} />
+                  </Grid>
+                )
               })}
           </Grid>
+        </Grid>
+        <Grid container>
+          {featuredPosts &&
+            featuredPosts.map((post: any) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  style={{ padding: 20, height: "50vh" }}
+                >
+                  <SquarePost key={post.id} {...post} hasOverlay={true} />
+                </Grid>
+              )
+            })}
         </Grid>
       </MainLayout>
     </App>

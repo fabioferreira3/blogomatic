@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import { Grid, Typography } from "@material-ui/core"
-import ScheduleIcon from "@material-ui/icons/Schedule"
 import Img from "gatsby-image"
 
 import { miniPostStyles } from "./MiniPost.styles"
+import { PostTimestamp } from "../../Common/PostTimestamp"
 
 export const MiniPost: React.FC<any> = props => {
   const classes = miniPostStyles()
@@ -20,7 +20,7 @@ export const MiniPost: React.FC<any> = props => {
         {featuredImageSource && (
           <Img
             fluid={featuredImageSource}
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "100%", height: "100%", borderRadius: 10 }}
           />
         )}
       </Grid>
@@ -31,9 +31,7 @@ export const MiniPost: React.FC<any> = props => {
         alignItems={"flex-start"}
         style={{ paddingLeft: 13 }}
       >
-        <Typography variant={"body2"} style={{ fontSize: 14 }}>
-          {lastUpdate.formated}
-        </Typography>
+        <PostTimestamp date={lastUpdate.formated} />
         <Typography variant={"h4"}>{title}</Typography>
       </Grid>
     </Grid>
