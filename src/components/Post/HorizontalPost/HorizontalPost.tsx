@@ -44,14 +44,13 @@ export const HorizontalPost: React.FC<any> = props => {
         <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
           <div dangerouslySetInnerHTML={{ __html: summary }} />
         </Typography>
-        <Grid container alignItems={"center"} wrap={"nowrap"}>
-          <PostAuthor
-            authorName={author.name}
-            imageSource={author.imageSource}
-            likeCount={"300"}
-            viewCount={"135"}
-          />
-        </Grid>
+
+        <PostAuthor
+          authorName={author.name}
+          imageSource={author.imageSource}
+          likeCount={"300"}
+          viewCount={"135"}
+        />
         <PostActionButton
           style={{ marginTop: 20 }}
           onClick={() => navigate(slug)}

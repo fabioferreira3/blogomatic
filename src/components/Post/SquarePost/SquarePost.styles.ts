@@ -10,6 +10,14 @@ export const squarePostStyles = () => {
       borderRadius: 8,
       overflow: "hidden",
     },
+    link: { textDecoration: "none", boxShadow: "none" },
+    mainImageWrapper: {
+      cursor: "pointer",
+      width: "100%",
+      height: "100%",
+      borderRadius: 10,
+      overflow: "hidden",
+    },
     mainImage: {
       width: "100%",
       height: "100%",

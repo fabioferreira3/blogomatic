@@ -71,7 +71,7 @@ export const Seo: React.FC<any> = props => {
         },
         {
           property: `article:section`,
-          content: postData.categories[0].name,
+          content: postData.mainCategory.name,
         },
       ])
       .concat(tags)

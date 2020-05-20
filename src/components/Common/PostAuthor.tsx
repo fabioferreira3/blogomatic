@@ -16,14 +16,18 @@ export const PostAuthor: React.FC<any> = props => {
   const classes = makeStyles(theme => ({
     authorName: { marginLeft: 10, fontSize: 14 },
     avatar: { width: 30, height: 30 },
-    countView: { marginLeft: 5, fontSize: 12 },
-    likeCount: { marginLeft: 5, fontSize: 12 },
-    favoriteIcon: { marginLeft: 15, fontSize: 12 },
-    visibilityIcon: { fontSize: 12 },
+    countView: { marginLeft: 5, fontSize: 12, color: theme.palette.info.main },
+    likeCount: { marginLeft: 5, fontSize: 12, color: theme.palette.info.main },
+    favoriteIcon: {
+      marginLeft: 15,
+      fontSize: 12,
+      color: theme.palette.info.main,
+    },
+    visibilityIcon: { fontSize: 12, color: theme.palette.info.main },
   }))()
 
   return (
-    <>
+    <Grid container alignItems={"center"} wrap={"nowrap"}>
       <Grid container item alignItems={"center"}>
         <Avatar
           src={imageSource}
@@ -42,6 +46,6 @@ export const PostAuthor: React.FC<any> = props => {
           {likeCount}
         </Typography>
       </Grid>
-    </>
+    </Grid>
   )
 }

@@ -11,6 +11,12 @@ export const normalizePost: any = (rawPostData: any, source: any) => {
     content: rawPostData.content,
     summary: rawPostData.excerpt,
     categories: rawPostData.categories,
+    mainCategory: rawPostData.categories
+      ? {
+          name: rawPostData.categories[0].name,
+          slug: rawPostData.categories[0].slug,
+        }
+      : null,
     featuredImageSource:
       rawPostData.featured_media.localFile.childImageSharp.fluid,
     author: {
