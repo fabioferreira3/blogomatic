@@ -5,13 +5,15 @@ import Seo from "../components/Seo"
 import { App } from "../components/App"
 import { MainLayout } from "../layouts/MainLayout"
 import { useFeaturedPosts } from "../hooks/useFeaturedPosts"
-import { VerticalLargePost } from "../components/Post/VerticalLargePost/VerticalLargePost"
-import { VerticalSmallPost } from "../components/Post/VerticalSmallPost/VerticalSmallPost"
-import { MiniPost } from "../components/Post/MiniPost/MiniPost"
-import { HorizontalPost } from "../components/Post/HorizontalPost/HorizontalPost"
-import { SquarePost } from "../components/Post/SquarePost/SquarePost"
+import { MiniPosts } from "../components/PostWrappers/MiniPosts"
+import { HorizontalPosts } from "../components/PostWrappers/HorizontalPosts"
+import { SquarePostsVertical } from "../components/PostWrappers/SquarePostsVertical"
+import { SquarePostsHorizontal } from "../components/PostWrappers/SquarePostsHorizontal"
+import { SmallPostsVertical } from "../components/PostWrappers/SmallPostsVertical"
+import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
+import { VerticalPosts } from "../components/PostWrappers/VerticalPosts"
 
-export default () => {
+const Index: React.FC<any> = () => {
   const featuredPosts = useFeaturedPosts()
 
   return (
@@ -20,96 +22,34 @@ export default () => {
         <Seo title="Ultimate Health" />
         <Grid container justify={"center"}>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
-            <Grid container justify={"center"} direction={"column"}>
-              {featuredPosts &&
-                featuredPosts.map((post: any) => {
-                  return <VerticalSmallPost key={post.id} {...post} />
-                })}
-            </Grid>
+            <SmallPostsVertical posts={featuredPosts} />
           </Grid>
           <Grid item style={{ padding: 20 }} xs={12} md={6}>
             <Grid container justify={"center"} direction={"column"}>
-              {featuredPosts &&
-                featuredPosts.map((post: any) => {
-                  return <VerticalLargePost key={post.id} {...post} />
-                })}
+              <VerticalPosts posts={featuredPosts} />
             </Grid>
           </Grid>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
-            <Grid container justify={"center"} direction={"column"}>
-              {featuredPosts &&
-                featuredPosts.map((post: any) => (
-                  <Grid item key={post.id} style={{ marginBottom: 20 }}>
-                    <MiniPost {...post} />
-                  </Grid>
-                ))}
-            </Grid>
+            <MiniPosts posts={featuredPosts} />
           </Grid>
         </Grid>
         <Grid container justify={"center"}>
-          <Grid
-            container
-            item
-            direction={"column"}
-            style={{ padding: 20 }}
-            xs={12}
-            sm={9}
-          >
-            {featuredPosts &&
-              featuredPosts.map((post: any) => {
-                return <HorizontalPost key={post.id} {...post} />
-              })}
+          <Grid container item xs={12} sm={9}>
+            <HorizontalPosts posts={featuredPosts} />
           </Grid>
-          <Grid container direction={"column"} item xs={12} sm={3}>
-            {featuredPosts &&
-              featuredPosts.map((post: any) => {
-                return (
-                  <Grid
-                    key={post.id}
-                    item
-                    style={{ height: "25vh", padding: 20 }}
-                  >
-                    <SquarePost {...post} hasOverlay={true} />
-                  </Grid>
-                )
-              })}
+          <Grid container item direction={"column"} xs={12} sm={3}>
+            <SquarePostsVertical posts={featuredPosts} hasOverlay={true} />
           </Grid>
         </Grid>
         <Grid container>
-          {featuredPosts &&
-            featuredPosts.map((post: any) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  style={{ padding: 20, height: "50vh" }}
-                  key={post.id}
-                >
-                  <SquarePost {...post} hasOverlay={true} />
-                </Grid>
-              )
-            })}
+          <SquarePostsHorizontal posts={featuredPosts} />
         </Grid>
-        <Grid container>
-          {featuredPosts &&
-            featuredPosts.map((post: any) => {
-              return (
-                <Grid
-                  key={post.id}
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  style={{ padding: 20 }}
-                >
-                  <VerticalSmallPost {...post} hasOverlay={true} />
-                </Grid>
-              )
-            })}
+        <Grid container style={{ paddingLeft: 20 }}>
+          <SmallPostsHorizontal posts={featuredPosts} />
         </Grid>
       </MainLayout>
     </App>
   )
 }
+
+export default Index

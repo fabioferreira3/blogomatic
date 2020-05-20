@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from "react"
 import { ListItemText } from "@material-ui/core"
 import Fade from "@material-ui/core/Fade"
+import { navigate } from "gatsby"
 
 import { NavMenuContext } from "./NavMenu"
 import {
@@ -37,8 +38,8 @@ export const NavMenuItem: React.FC<INavMenuItemProps> = props => {
           variant="contained"
           color="primary"
           onClick={() => {
-            if (props.targetUrl) {
-              console.log(`navigating to ${props.targetUrl}`)
+            if (props.targetUrl && props.isInternal) {
+              navigate(`/${props.targetUrl}`)
             }
           }}
         >

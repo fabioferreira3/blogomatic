@@ -1,6 +1,17 @@
-export const normalizeMainMenu: any = (rawMenuData: any, source: any) => {
+export const normalizeMainMenu: any = (
+  rawMenuData: any,
+  siteUrl: string,
+  source: any
+) => {
   if (source !== "wp") {
     return []
+  }
+
+  const defineUrl = (item: any, siteUrl: string) => {
+    if (item.object === "category") {
+      return item.url.replace(siteUrl, "")
+    }
+    return item.url
   }
 
   const mapItems: any = (items: any) => {
@@ -10,18 +21,18 @@ export const normalizeMainMenu: any = (rawMenuData: any, source: any) => {
         slug: item.slug,
         title: item.title,
         targetAtr: item.target,
-        targetUrl: item.url,
+        targetUrl: defineUrl(item, siteUrl),
         itemType: item.object,
         itemOrder: item.menu_order,
-        children: item.child_items ? mapItems(item.child_items) : null,
         customCssClasses: item.classes,
         lastModifiedDate: item.post_modified,
+        isInternal: item.object !== "custom",
       }
     })
   }
 
-  const { slug } = rawMenuData.wordpressMenusMenusItems
-  const menuItems = mapItems(rawMenuData.wordpressMenusMenusItems.items)
+  const { slug } = rawMenuData
+  const menuItems = mapItems(rawMenuData.items)
 
   return { menu: slug, items: menuItems }
 }

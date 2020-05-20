@@ -1,13 +1,13 @@
 import React, { useEffect } from "react"
 import { Box, Grid, Typography } from "@material-ui/core"
 import Img from "gatsby-image"
-
-import { verticalSmallPostStyles } from "./VerticalSmallPost.styles"
-import { PostTimestamp } from "../../Common/PostTimestamp"
 import { Link, navigate } from "gatsby"
 
-export const VerticalSmallPost: React.FC<any> = props => {
-  const classes = verticalSmallPostStyles()
+import { smallPostStyles } from "./SmallPost.styles"
+import { PostTimestamp } from "../../Common/PostTimestamp"
+
+export const SmallPost: React.FC<any> = props => {
+  const classes = smallPostStyles()
 
   const { featuredImageSource, updatedAt, slug, title } = props
 
@@ -32,7 +32,7 @@ export const VerticalSmallPost: React.FC<any> = props => {
       >
         <PostTimestamp date={updatedAt.formated} displayIcon={true} />
       </Grid>
-      <Link to={slug} style={{ textDecoration: "none", boxShadow: "none" }}>
+      <Link to={`/${slug}`} style={{ textDecoration: "none", boxShadow: "none" }}>
         <Typography
           variant={"h3"}
           color={"textPrimary"}

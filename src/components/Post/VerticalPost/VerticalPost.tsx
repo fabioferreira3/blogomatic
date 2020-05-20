@@ -4,21 +4,20 @@ import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
 
 import { PostActionButton } from "../../Common/PostActionButton"
-import { verticalLargePostStyles } from "./VerticalLargePost.styles"
+import { verticalPostStyles } from "./VerticalPost.styles"
 import { PostTimestamp } from "../../Common/PostTimestamp"
 import { PostAuthor } from "../../Common/PostAuthor"
 
-export const VerticalLargePost: React.FC<any> = props => {
+export const VerticalPost: React.FC<any> = props => {
   const { author, featuredImageSource, updatedAt, title, summary, slug } = props
-  console.log(props)
-  const classes = verticalLargePostStyles()
+  const classes = verticalPostStyles()
 
   useEffect(() => {
     console.log(`VERTICAL LARGE POST:: ${title} rendered`)
   })
 
   return (
-    <Grid container direction={"column"} className={classes.wrapper}>
+    <Grid container item direction={"column"} className={classes.wrapper}>
       {featuredImageSource && (
         <Box
           className={classes.mainImageWrapper}
@@ -31,7 +30,7 @@ export const VerticalLargePost: React.FC<any> = props => {
         <PostTimestamp date={updatedAt.formated} displayIcon={true} />
       </Grid>
 
-      <Link to={slug} className={classes.link}>
+      <Link to={`/${slug}`} className={classes.link}>
         <Typography
           className={classes.title}
           variant={"h2"}

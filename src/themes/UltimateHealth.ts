@@ -54,7 +54,7 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
         textTransform: "uppercase",
       },
       body1: {
-        fontSize: 16,
+        fontSize: 18,
         fontFamily: "Pontano Sans",
       },
       body2: {

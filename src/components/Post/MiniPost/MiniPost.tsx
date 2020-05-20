@@ -34,7 +34,7 @@ export const MiniPost: React.FC<any> = props => {
         style={{ paddingLeft: 13 }}
       >
         <PostTimestamp date={updatedAt.formated} />
-        <Link to={slug} className={classes.link}>
+        <Link to={`/${slug}`} className={classes.link}>
           <Typography variant={"h4"} color={"textPrimary"}>
             {title}
           </Typography>

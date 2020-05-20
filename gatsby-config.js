@@ -5,7 +5,7 @@ module.exports = {
     title: `Blogomatic`,
     description: `Infinite blogs`,
     author: `@fabioferreira_web`,
-    siteUrl: "http://localhost",
+    siteUrl: "http://localhost:7100",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -4,7 +4,7 @@ import { normalizeCategories } from "../normalizers/categories"
 export const useCategories = () => {
   const rawCategoriesData = useStaticQuery(graphql`
     query {
-      allWordpressCategory {
+      allWordpressCategory(filter: { count: { gt: 0 } }) {
         nodes {
           name
           slug

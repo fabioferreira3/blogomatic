@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles"
 
 export const blogPostStyles = () => {
   return makeStyles(theme => ({
-    contentWrapper: { padding: 25 },
+    postWrapper: { padding: 25 },
     mainImageWrapper: { height: "50vh", borderRadius: 10, overflow: "hidden" },
     mainImage: { height: "100%" },
     title: {
@@ -13,6 +13,12 @@ export const blogPostStyles = () => {
     authorWrapper: {
       marginTop: 15,
       marginBottom: 15,
+    },
+    socialWrapper: {
+      padding: 20,
+    },
+    contentWrapper: {
+      marginTop: 30,
     },
   }))()
 }

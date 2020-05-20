@@ -16,11 +16,10 @@ export const footerStyles = () => {
       marginBottom: 10,
       borderRadius: 10,
     },
-    siteDescription: { marginTop: 40 },
-    categoryItem: {
-      margin: 0,
-      padding: "0 0 5px 0",
-      color: theme.palette.text.secondary,
+    siteDescription: {
+      marginTop: 40,
+      fontFamily: theme.typography.fontFamily,
+      fontSize: 22,
     },
     logoWrapper: {
       cursor: "pointer",
@@ -28,6 +27,11 @@ export const footerStyles = () => {
       background: "#fff",
       padding: 10,
       borderRadius: 10,
+    },
+    categoryItem: {
+      margin: 0,
+      padding: "0 0 5px 0",
+      color: theme.palette.text.secondary,
     },
   }))()
 }
