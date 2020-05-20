@@ -1,81 +1,92 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-export const Seo: React.FC<any> = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+export const Seo: React.FC<any> = props => {
+  const { title, description, postData } = props
+  const metaData = postData ? postData.metaData : null
+  let metaTags = [
+    {
+      name: `description`,
+      content: description || (metaData && metaData.yoast_wpseo_metadesc),
+    },
+    {
+      property: `og:title`,
+      content: (metaData && metaData.yoast_wpseo_title) || title,
+    },
+    {
+      property: `og:description`,
+      content: (metaData && metaData.yoast_wpseo_metadesc) || description,
+    },
+    {
+      property: `og:type`,
+      content: `${postData ? "article" : "blog"}`,
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`,
+    },
+    {
+      name: `twitter:title`,
+      content:
+        (metaData && metaData.yoast_wpseo_twitter_title) ||
+        (metaData && metaData.yoast_wpseo_title) ||
+        title,
+    },
+    {
+      name: `twitter:description`,
+      content:
+        (metaData && metaData.yoast_wpseo_twitter_description) ||
+        (metaData && metaData.yoast_wpseo_metadesc) ||
+        description,
+    },
+  ]
 
-  const metaDescription = description || site.siteMetadata.description
+  if (postData) {
+    const tags =
+      postData.tags && postData.tags.length
+        ? postData.tags.map((tag: any) => {
+            return {
+              property: `article:tag`,
+              content: tag.name,
+            }
+          })
+        : {}
+    metaTags = metaTags
+      .concat([
+        {
+          name: `twitter:creator`,
+          content: postData.author.name,
+        },
+        {
+          property: `article:published_time`,
+          content: postData.createdAt.raw,
+        },
+        {
+          property: `article:modified_time`,
+          content: postData.updatedAt.raw,
+        },
+        {
+          property: `article:author`,
+          content: postData.author.name,
+        },
+        {
+          property: `article:section`,
+          content: postData.categories[0].name,
+        },
+      ])
+      .concat(tags)
+  }
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: "en",
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+      title={title || postData.yoast_wpseo_title}
+      titleTemplate={title || (metaData && metaData.yoast_wpseo_title)}
+      meta={metaTags}
     />
   )
-}
-
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default Seo

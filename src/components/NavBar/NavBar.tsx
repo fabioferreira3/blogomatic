@@ -1,5 +1,6 @@
 import React from "react"
 import { AppBar, Grid } from "@material-ui/core"
+import { navigate } from "gatsby"
 
 import { NavMenu } from "../NavMenu/NavMenu"
 import { navBarStyles } from "./NavBar.styles"
@@ -16,7 +17,8 @@ export const NavBar: React.FC = () => {
           item
           xs={12}
           sm={6}
-          style={{ padding: 10, maxWidth: 500 }}
+          className={classes.wrapper}
+          onClick={() => navigate("/")}
         >
           <Logo />
         </Grid>

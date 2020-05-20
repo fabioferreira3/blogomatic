@@ -17,7 +17,7 @@ export default () => {
   return (
     <App>
       <MainLayout>
-        <Seo title="Home" />
+        <Seo title="Ultimate Health" />
         <Grid container justify={"center"}>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
             <Grid container justify={"center"} direction={"column"}>
@@ -39,8 +39,8 @@ export default () => {
             <Grid container justify={"center"} direction={"column"}>
               {featuredPosts &&
                 featuredPosts.map((post: any) => (
-                  <Grid item style={{ marginBottom: 20 }}>
-                    <MiniPost key={post.id} {...post} />
+                  <Grid item key={post.id} style={{ marginBottom: 20 }}>
+                    <MiniPost {...post} />
                   </Grid>
                 ))}
             </Grid>

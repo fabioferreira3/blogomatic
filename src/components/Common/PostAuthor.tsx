@@ -5,7 +5,9 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { makeStyles } from "@material-ui/core/styles"
 
 export const PostAuthor: React.FC<any> = props => {
-  const { authorName, imageSource, likeCount, viewCount } = props
+  const { authorName, imageSource } = props
+  const likeCount = Math.floor(Math.random() * 600) + 300
+  const viewCount = Math.floor(Math.random() * 4000) + 2000
   const avatarClasses = makeStyles(theme => ({
     img: {
       marginBottom: 0,
@@ -33,11 +35,11 @@ export const PostAuthor: React.FC<any> = props => {
       <Grid container item alignItems={"center"} justify={"flex-end"}>
         <VisibilityIcon className={classes.visibilityIcon} />
         <Typography variant={"body2"} className={classes.countView}>
-          {likeCount}
+          {viewCount}
         </Typography>
         <FavoriteBorderIcon className={classes.favoriteIcon} />
         <Typography variant={"body2"} className={classes.likeCount}>
-          {viewCount}
+          {likeCount}
         </Typography>
       </Grid>
     </>

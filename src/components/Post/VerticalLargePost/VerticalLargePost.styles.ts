@@ -8,9 +8,24 @@ export const verticalLargePostStyles = () => {
     img: {
       marginBottom: 0,
     },
-    mainImage: { width: "100%", maxHeight: 400, borderRadius: 10 },
-    title: { marginTop: 10, marginBottom: 10 },
-    postAuthorWrapper: { flexWrap: "nowrap", marginTop: 15, color: theme.palette.info.main },
+    mainImageWrapper: {
+      cursor: "pointer",
+      width: "100%",
+      maxHeight: 400,
+      borderRadius: 10,
+      overflow: "hidden",
+    },
+    mainImage: { width: "100%", maxHeight: 400 },
+    title: {
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    link: { textDecoration: "none", boxShadow: "none" },
+    postAuthorWrapper: {
+      flexWrap: "nowrap",
+      marginTop: 15,
+      color: theme.palette.info.main,
+    },
     avatar: { width: 30, height: 30 },
     authorName: { marginLeft: 10, fontSize: 14 },
     countView: { marginLeft: 5, fontSize: 12 },

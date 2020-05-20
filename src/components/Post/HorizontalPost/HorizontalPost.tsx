@@ -1,16 +1,15 @@
 import React, { useEffect } from "react"
-import { Avatar, Grid, Typography } from "@material-ui/core"
-import VisibilityIcon from "@material-ui/icons/Visibility"
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
+import { Box, Grid, Typography } from "@material-ui/core"
 import Img from "gatsby-image"
 
 import { horizontalPostStyles } from "./HorizontalPost.styles"
 import { PostActionButton } from "../../Common/PostActionButton"
 import { PostTimestamp } from "../../Common/PostTimestamp"
 import { PostAuthor } from "../../Common/PostAuthor"
+import { Link, navigate } from "gatsby"
 
 export const HorizontalPost: React.FC<any> = props => {
-  const { author, featuredImageSource, lastUpdate, title, summary } = props
+  const { author, featuredImageSource, updatedAt, slug, summary, title } = props
   const classes = horizontalPostStyles()
 
   useEffect(() => {
@@ -18,30 +17,34 @@ export const HorizontalPost: React.FC<any> = props => {
   })
 
   return (
-    <Grid container style={{ marginBottom: 25 }}>
+    <Grid container className={classes.wrapper}>
       <Grid item xs={12} sm={6}>
         {featuredImageSource && (
-          <Img
-            fluid={featuredImageSource}
-            style={{ width: "100%", maxHeight: 400, borderRadius: 10 }}
-          />
+          <Box
+            className={classes.mainImageWrapper}
+            onClick={() => navigate(slug)}
+          >
+            <Img fluid={featuredImageSource} className={classes.mainImage} />
+          </Box>
         )}
       </Grid>
-      <Grid container xs={12} sm={6} item style={{ paddingLeft: 20 }}>
+      <Grid container xs={12} sm={6} item className={classes.contentWrapper}>
         <Grid container alignItems={"center"}>
-          <PostTimestamp date={lastUpdate.formated} displayIcon={true} />
+          <PostTimestamp date={updatedAt.formated} displayIcon={true} />
         </Grid>
-        <Typography
-          variant={"h2"}
-          color={"textPrimary"}
-          style={{ marginTop: 10, marginBottom: 10 }}
-        >
-          {title}
-        </Typography>
+        <Link to={slug} className={classes.link}>
+          <Typography
+            variant={"h2"}
+            color={"textPrimary"}
+            className={classes.title}
+          >
+            {title}
+          </Typography>
+        </Link>
         <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
           <div dangerouslySetInnerHTML={{ __html: summary }} />
         </Typography>
-        <Grid container alignItems={"center"} style={{ flexWrap: "nowrap" }}>
+        <Grid container alignItems={"center"} wrap={"nowrap"}>
           <PostAuthor
             authorName={author.name}
             imageSource={author.imageSource}
@@ -49,7 +52,12 @@ export const HorizontalPost: React.FC<any> = props => {
             viewCount={"135"}
           />
         </Grid>
-        <PostActionButton style={{ marginTop: 20 }}>Read More</PostActionButton>
+        <PostActionButton
+          style={{ marginTop: 20 }}
+          onClick={() => navigate(slug)}
+        >
+          Read More
+        </PostActionButton>
       </Grid>
     </Grid>
   )

@@ -23,6 +23,7 @@ export const footerStyles = () => {
       color: theme.palette.text.secondary,
     },
     logoWrapper: {
+      cursor: "pointer",
       width: "100%",
       background: "#fff",
       padding: 10,

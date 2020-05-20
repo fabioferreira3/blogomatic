@@ -10,6 +10,7 @@ export const normalizePost: any = (rawPostData: any, source: any) => {
     title: rawPostData.title,
     content: rawPostData.content,
     summary: rawPostData.excerpt,
+    categories: rawPostData.categories,
     featuredImageSource:
       rawPostData.featured_media.localFile.childImageSharp.fluid,
     author: {
@@ -17,11 +18,16 @@ export const normalizePost: any = (rawPostData: any, source: any) => {
       imageSource: rawPostData.author.avatar_urls.wordpress_96,
     },
     slug: rawPostData.slug,
-    lastUpdate: {
-      raw: rawPostData.modified,
+    createdAt: {
+      raw: moment(rawPostData.date).format("YYYY-MM-DD HH:mm:ss"),
+      formated: moment(rawPostData.date).format("MMMM DD, YYYY"),
+    },
+    updatedAt: {
+      raw: moment(rawPostData.modified).format("YYYY-MM-DD HH:mm:ss"),
       formated: moment(rawPostData.modified).format("MMMM DD, YYYY"),
     },
     tags: rawPostData.tags,
+    metaData: rawPostData.yoast_meta,
   }
 }
 

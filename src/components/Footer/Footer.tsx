@@ -7,6 +7,7 @@ import {
   ListItemText,
   Typography,
 } from "@material-ui/core"
+import { navigate } from "gatsby";
 
 import { useFeaturedPosts } from "../../hooks/useFeaturedPosts"
 import { useCategories } from "../../hooks/useCategories"
@@ -32,7 +33,7 @@ export const Footer: React.FC = () => {
         md={3}
         className={classes.columnWrapper}
       >
-        <Box className={classes.logoWrapper}>
+        <Box className={classes.logoWrapper} onClick={() => navigate("/")}>
           <Logo />
         </Box>
 
@@ -57,8 +58,8 @@ export const Footer: React.FC = () => {
         </Typography>
         {featuredPosts &&
           featuredPosts.map((post: any) => (
-            <Grid item className={classes.postWrapper}>
-              <MiniPost key={post.id} {...post} />
+            <Grid item key={post.id} className={classes.postWrapper}>
+              <MiniPost {...post} />
             </Grid>
           ))}
       </Grid>
@@ -72,8 +73,8 @@ export const Footer: React.FC = () => {
         </Typography>
         {featuredPosts &&
           featuredPosts.map((post: any) => (
-            <Grid item className={classes.postWrapper}>
-              <MiniPost key={post.id} {...post} />
+            <Grid item key={post.id} className={classes.postWrapper}>
+              <MiniPost {...post} />
             </Grid>
           ))}
       </Grid>

@@ -5,6 +5,7 @@ export const navBarStyles = () => {
     grow: {
       flexGrow: 1,
     },
+    wrapper: { padding: 10, maxWidth: 500, cursor: "pointer" },
     appBar: {
       boxShadow: "none",
       paddingRight: "15px !important",
