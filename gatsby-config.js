@@ -128,7 +128,18 @@ module.exports = {
         // Defaults to true.
         useACF: true,
         verboseOutput: true,
-        excludeRoutes: ["**/users"],
+        excludedRoutes: [
+          "**/settings",
+          "**/themes",
+          "**/users/me",
+          "**/yoast/v1/get_head",
+          "**/yoast/v1/indexation/*",
+          "**/yoast/v1/reindex_posts",
+          "**/yoast/v1/file_size",
+          "**/yoast/v1/myyoast/connect",
+          "**/yoast/v1/statistics",
+          "**/yoast/v1/configurator"
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
