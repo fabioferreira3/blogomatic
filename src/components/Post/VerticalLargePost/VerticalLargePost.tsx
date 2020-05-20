@@ -33,7 +33,7 @@ export const VerticalLargePost: React.FC<any> = props => {
         {title}
       </Typography>
 
-      <Typography variant={"body1"}>
+      <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
         <div dangerouslySetInnerHTML={{ __html: summary }} />
       </Typography>
       <Grid

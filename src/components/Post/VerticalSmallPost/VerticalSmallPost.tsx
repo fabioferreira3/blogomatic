@@ -17,15 +17,20 @@ export const VerticalSmallPost: React.FC<any> = props => {
   return (
     <Grid container direction={"column"} style={{ marginBottom: 25 }}>
       {featuredImageSource && (
-        <Img
-          fluid={featuredImageSource}
-          style={{ width: "100%", maxHeight: 160, borderRadius: 10 }}
-        />
+        <Img fluid={featuredImageSource} className={classes.mainImage} />
       )}
-      <Grid container alignItems={"center"} style={{ marginTop: 10 }}>
+      <Grid
+        container
+        alignItems={"center"}
+        className={classes.timestampWrapper}
+      >
         <PostTimestamp date={lastUpdate.formated} displayIcon={true} />
       </Grid>
-      <Typography variant={"h3"} style={{ marginTop: 10, marginBottom: 10 }}>
+      <Typography
+        variant={"h3"}
+        color={"textPrimary"}
+        className={classes.title}
+      >
         {title}
       </Typography>
     </Grid>

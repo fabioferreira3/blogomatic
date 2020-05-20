@@ -6,6 +6,8 @@ export const useFeaturedPosts = () => {
     query {
       allWordpressPost(
         filter: { sticky: { eq: true }, status: { eq: "publish" } }
+        limit: 3
+        sort: { fields: modified, order: DESC }
       ) {
         nodes {
           ...wpPost

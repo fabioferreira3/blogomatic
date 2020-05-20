@@ -1,5 +1,6 @@
 import React from "react"
 import {
+  Box,
   Grid,
   List,
   ListItem,
@@ -31,8 +32,15 @@ export const Footer: React.FC = () => {
         md={3}
         className={classes.columnWrapper}
       >
-        <Logo />
-        <Typography variant={"body1"} style={{ marginTop: 40 }}>
+        <Box className={classes.logoWrapper}>
+          <Logo />
+        </Box>
+
+        <Typography
+          variant={"body1"}
+          color={"textSecondary"}
+          className={classes.siteDescription}
+        >
           {siteMetadata.description}
         </Typography>
         <Typography variant={"h4"} style={{ marginTop: 20 }}>
@@ -40,31 +48,47 @@ export const Footer: React.FC = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6} md={3} className={classes.columnWrapper}>
-        <Typography variant={"h4"} className={classes.itemHeader}>
+        <Typography
+          variant={"h4"}
+          className={classes.itemHeader}
+          color={"textSecondary"}
+        >
           Featured
         </Typography>
         {featuredPosts &&
-          featuredPosts.map((post: any) => {
-            return <MiniPost key={post.id} {...post} />
-          })}
+          featuredPosts.map((post: any) => (
+            <Grid item className={classes.postWrapper}>
+              <MiniPost key={post.id} {...post} />
+            </Grid>
+          ))}
       </Grid>
       <Grid item xs={12} sm={6} md={3} className={classes.columnWrapper}>
-        <Typography variant={"h4"} className={classes.itemHeader}>
+        <Typography
+          variant={"h4"}
+          className={classes.itemHeader}
+          color={"textSecondary"}
+        >
           Popular
         </Typography>
         {featuredPosts &&
-          featuredPosts.map((post: any) => {
-            return <MiniPost key={post.id} {...post} />
-          })}
+          featuredPosts.map((post: any) => (
+            <Grid item className={classes.postWrapper}>
+              <MiniPost key={post.id} {...post} />
+            </Grid>
+          ))}
       </Grid>
       <Grid item xs={12} sm={6} md={3} className={classes.columnWrapper}>
-        <Typography variant={"h4"} className={classes.itemHeader}>
+        <Typography
+          variant={"h4"}
+          className={classes.itemHeader}
+          color={"textSecondary"}
+        >
           Categories
         </Typography>
         <List>
           {categories.map((category: any) => {
             return (
-              <ListItem style={{ margin: 0, padding: "0 0 5px 0" }}>
+              <ListItem key={category.id} className={classes.categoryItem}>
                 <ListItemText primary={category.name} />
               </ListItem>
             )

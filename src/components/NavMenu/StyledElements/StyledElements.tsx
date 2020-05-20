@@ -16,6 +16,8 @@ export const StyledListItemIcon = withStyles(theme => ({
 
 export const StyledButton = withStyles(theme => ({
   root: {
+    color: theme.palette.text.primary,
+    fontSize: 16,
     width: "100%",
     background: "none",
     border: 0,

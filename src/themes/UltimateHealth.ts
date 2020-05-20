@@ -7,17 +7,17 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
     palette: {
       type: preference,
       primary: {
-        main: "#c5fc44",
-        light: "#ddfc8f",
-        dark: "#acdb3f",
+        main: "#62d66c",
+        light: "#6bef76",
+        dark: "#56b95e",
       },
       secondary: {
-        main: "#9440c4",
-        light: "#bf6fed",
-        dark: "#7a38a0",
+        main: "#fb893f",
+        light: "#fda56c",
+        dark: "#e37e3d",
       },
       text: {
-        primary: "#383838",
+        primary: "#515151",
         secondary: "#fff",
       },
       info: {
@@ -26,7 +26,7 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
       tonalOffset: 0.2,
     },
     typography: {
-      fontFamily: "Fira Sans",
+      fontFamily: "Acme",
       fontWeightLight: 300,
       fontWeightMedium: 400,
       fontWeightBold: 700,
@@ -39,22 +39,27 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
         fontSize: 30,
         fontWeight: 700,
         letterSpacing: 1,
+        textTransform: "uppercase",
       },
       h3: {
         fontSize: 20,
         fontWeight: 700,
         letterSpacing: 1,
+        textTransform: "uppercase",
       },
       h4: {
         fontSize: 14,
         fontWeight: 700,
         letterSpacing: 1,
+        textTransform: "uppercase",
       },
       body1: {
         fontSize: 16,
+        fontFamily: "Pontano Sans",
       },
       body2: {
         fontSize: 14,
+        fontFamily: "Pontano Sans",
       },
       button: {
         letterSpacing: 1,

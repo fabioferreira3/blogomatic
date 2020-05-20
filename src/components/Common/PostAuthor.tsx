@@ -6,10 +6,12 @@ import { makeStyles } from "@material-ui/core/styles"
 
 export const PostAuthor: React.FC<any> = props => {
   const { authorName, imageSource, likeCount, viewCount } = props
-  const classes = makeStyles(theme => ({
+  const avatarClasses = makeStyles(theme => ({
     img: {
       marginBottom: 0,
     },
+  }))()
+  const classes = makeStyles(theme => ({
     authorName: { marginLeft: 10, fontSize: 14 },
     avatar: { width: 30, height: 30 },
     countView: { marginLeft: 5, fontSize: 12 },
@@ -23,7 +25,7 @@ export const PostAuthor: React.FC<any> = props => {
       <Grid container item alignItems={"center"}>
         <Avatar
           src={imageSource}
-          classes={classes}
+          classes={avatarClasses}
           className={classes.avatar}
         />
         <Typography className={classes.authorName}>by {authorName}</Typography>

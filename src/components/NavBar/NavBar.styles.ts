@@ -8,17 +8,14 @@ export const navBarStyles = () => {
     appBar: {
       boxShadow: "none",
       paddingRight: "15px !important",
-      height: 160,
       borderBottom: "1px solid #eaeaea",
     },
     navMenu: {
-      position: "absolute",
+      height: "100%",
       width: "100%",
-      height: 70,
-      zIndex: 10,
       color: "white",
+      padding: 10,
       backgroundColor: "transparent",
-      top: 90,
     },
   }))()
 }

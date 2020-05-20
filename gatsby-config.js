@@ -34,7 +34,11 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Fira Sans",
+              family: "Pontano Sans",
+              variants: ["300", "400", "500"],
+            },
+            {
+              family: "Acme",
               variants: ["300", "400", "500"],
             },
           ],

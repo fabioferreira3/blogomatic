@@ -7,7 +7,6 @@ import { PostTimestamp } from "../../Common/PostTimestamp"
 
 export const MiniPost: React.FC<any> = props => {
   const classes = miniPostStyles()
-
   const { featuredImageSource, lastUpdate, title } = props
 
   useEffect(() => {
@@ -15,7 +14,7 @@ export const MiniPost: React.FC<any> = props => {
   })
 
   return (
-    <Grid container style={{ marginBottom: 25, flexWrap: "nowrap" }}>
+    <Grid container wrap={"nowrap"} justify={"center"}>
       <Grid item style={{ width: "60%", height: 80 }}>
         {featuredImageSource && (
           <Img
@@ -32,7 +31,9 @@ export const MiniPost: React.FC<any> = props => {
         style={{ paddingLeft: 13 }}
       >
         <PostTimestamp date={lastUpdate.formated} />
-        <Typography variant={"h4"}>{title}</Typography>
+        <Typography variant={"h4"} color={"textPrimary"}>
+          {title}
+        </Typography>
       </Grid>
     </Grid>
   )

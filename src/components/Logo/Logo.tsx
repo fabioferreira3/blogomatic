@@ -9,8 +9,8 @@ export const Logo: React.FC<any> = () => {
         url {
           localFile {
             childImageSharp {
-              fixed(width: 500, height: 150, quality: 60) {
-                ...GatsbyImageSharpFixed
+              fluid(maxWidth: 500, maxHeight: 90, quality: 60) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -20,5 +20,7 @@ export const Logo: React.FC<any> = () => {
   `)
   const logoImage = rawImageLogoData.wordpressWpLogo.url.localFile
 
-  return <Img fixed={logoImage.childImageSharp.fixed} style={{ width: "100%", height: 90 }} />
+  return (
+    <Img fluid={logoImage.childImageSharp.fluid} style={{ width: "100%" }} />
+  )
 }

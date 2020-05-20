@@ -14,7 +14,7 @@ export const navMenuItemStyles = () => {
       flexDirection: "row",
       justifyContent: "flex-end",
       alignItems: "center",
-      minWidth: "140px",
+      minWidth: 140,
     },
   }))()
 }

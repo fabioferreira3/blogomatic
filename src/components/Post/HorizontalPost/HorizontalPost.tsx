@@ -31,11 +31,16 @@ export const HorizontalPost: React.FC<any> = props => {
         <Grid container alignItems={"center"}>
           <PostTimestamp date={lastUpdate.formated} displayIcon={true} />
         </Grid>
-        <Typography variant={"h2"} style={{ marginTop: 10, marginBottom: 10 }}>
+        <Typography
+          variant={"h2"}
+          color={"textPrimary"}
+          style={{ marginTop: 10, marginBottom: 10 }}
+        >
           {title}
         </Typography>
-
-        <div dangerouslySetInnerHTML={{ __html: summary }} />
+        <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
+          <div dangerouslySetInnerHTML={{ __html: summary }} />
+        </Typography>
         <Grid container alignItems={"center"} style={{ flexWrap: "nowrap" }}>
           <PostAuthor
             authorName={author.name}

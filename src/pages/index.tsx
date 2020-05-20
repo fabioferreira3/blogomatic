@@ -18,7 +18,7 @@ export default () => {
     <App>
       <MainLayout>
         <Seo title="Home" />
-        <Grid container justify={"center"} style={{ marginTop: 160 }}>
+        <Grid container justify={"center"}>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
             <Grid container justify={"center"} direction={"column"}>
               {featuredPosts &&
@@ -38,9 +38,11 @@ export default () => {
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
             <Grid container justify={"center"} direction={"column"}>
               {featuredPosts &&
-                featuredPosts.map((post: any) => {
-                  return <MiniPost key={post.id} {...post} />
-                })}
+                featuredPosts.map((post: any) => (
+                  <Grid item style={{ marginBottom: 20 }}>
+                    <MiniPost key={post.id} {...post} />
+                  </Grid>
+                ))}
             </Grid>
           </Grid>
         </Grid>
@@ -62,8 +64,12 @@ export default () => {
             {featuredPosts &&
               featuredPosts.map((post: any) => {
                 return (
-                  <Grid item style={{ height: "25vh", padding: 20 }}>
-                    <SquarePost key={post.id} {...post} hasOverlay={true} />
+                  <Grid
+                    key={post.id}
+                    item
+                    style={{ height: "25vh", padding: 20 }}
+                  >
+                    <SquarePost {...post} hasOverlay={true} />
                   </Grid>
                 )
               })}
@@ -79,8 +85,9 @@ export default () => {
                   sm={6}
                   md={4}
                   style={{ padding: 20, height: "50vh" }}
+                  key={post.id}
                 >
-                  <SquarePost key={post.id} {...post} hasOverlay={true} />
+                  <SquarePost {...post} hasOverlay={true} />
                 </Grid>
               )
             })}
@@ -89,12 +96,15 @@ export default () => {
           {featuredPosts &&
             featuredPosts.map((post: any) => {
               return (
-                <Grid item xs={12} sm={4} md={3} style={{ padding: 20 }}>
-                  <VerticalSmallPost
-                    key={post.id}
-                    {...post}
-                    hasOverlay={true}
-                  />
+                <Grid
+                  key={post.id}
+                  item
+                  xs={12}
+                  sm={4}
+                  md={3}
+                  style={{ padding: 20 }}
+                >
+                  <VerticalSmallPost {...post} hasOverlay={true} />
                 </Grid>
               )
             })}
