@@ -22,8 +22,10 @@ export const StyledButton = withStyles(theme => ({
     background: "none",
     border: 0,
     boxShadow: "none",
-    "&:hover": {
-      background: "transparent",
+    transition: "background 0.4s, color 0.4s",
+    "&:hover, &:focus": {
+      background: theme.palette.secondary.main,
+      color: theme.palette.text.secondary,
       boxShadow: "none",
     },
   },

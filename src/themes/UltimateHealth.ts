@@ -32,7 +32,7 @@ const UltimateHealthTheme = (preference: PreferenceT) => {
       fontWeightBold: 700,
       h1: {
         letterSpacing: 1,
-        fontSize: 40,
+        fontSize: 35,
         fontWeight: 700,
       },
       h2: {

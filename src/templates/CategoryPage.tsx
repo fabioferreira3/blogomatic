@@ -17,9 +17,13 @@ const CategoryPageTemplate: React.FC<any> = ({ data }) => {
   const CategoryHeader = withStyles(theme => ({
     root: {
       background: theme.palette.primary.main,
-      color: "#fff",
-      padding: "10px 30px 10px 30px",
+      color: theme.palette.text.secondary,
+      padding: "5px 20px 5px 20px",
       borderRadius: 10,
+      [theme.breakpoints.down("xs")]: {
+        display: "block",
+        textAlign: "center",
+      },
     },
   }))(({ classes }: any) => (
     <Typography variant={"h1"}>
