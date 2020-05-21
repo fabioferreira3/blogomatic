@@ -8,10 +8,14 @@ import { MainLayout } from "../layouts/MainLayout"
 import { App } from "../components/App"
 import { HorizontalPosts } from "../components/PostWrappers/HorizontalPosts"
 import { categoryPageStyles } from "./CategoryPage.styles"
+import Seo from "../components/Seo"
 
 const CategoryPageTemplate: React.FC<any> = ({ data }) => {
   const classes = categoryPageStyles()
-  const categoryName = data.wordpressCategory.name
+  const {
+    name: categoryName,
+    description: categoryDescription,
+  } = data.wordpressCategory
   const posts = normalizePosts(data.allWordpressPost.nodes, "wp")
 
   const CategoryHeader = withStyles(theme => ({
@@ -26,14 +30,15 @@ const CategoryPageTemplate: React.FC<any> = ({ data }) => {
       },
     },
   }))(({ classes }: any) => (
-    <Typography variant={"h1"}>
-      <span className={classes.root}>{categoryName}</span>
+    <Typography variant={"h1"} component={"span"} className={classes.root}>
+      {categoryName}
     </Typography>
   ))
 
   return (
     <App>
       <MainLayout>
+        <Seo title={categoryName} description={categoryDescription} />
         <Grid container>
           <Grid item xs={12} className={classes.headerWrapper}>
             <CategoryHeader />
@@ -54,6 +59,7 @@ export const query = graphql`
   query($id: Int!) {
     wordpressCategory(wordpress_id: { eq: $id }) {
       name
+      description
     }
     allWordpressPost(
       filter: { categories: { elemMatch: { wordpress_id: { eq: $id } } } }

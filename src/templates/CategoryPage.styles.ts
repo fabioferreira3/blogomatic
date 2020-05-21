@@ -4,7 +4,7 @@ export const categoryPageStyles = () => {
   return makeStyles(theme => ({
     headerWrapper: { padding: 20 },
     categoryWrapper: {
-      marginTop: 30,
+      marginTop: 10,
       [theme.breakpoints.down("xs")]: {
         marginTop: 0,
       },

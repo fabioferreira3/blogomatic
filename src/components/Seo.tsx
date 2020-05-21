@@ -2,8 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 export const Seo: React.FC<any> = props => {
-  const { title, description, postData } = props
-  const metaData = postData ? postData.metaData : null
+  const { title, description, pageData } = props
+  const metaData = pageData ? pageData.metaData : null
   let metaTags = [
     {
       name: `description`,
@@ -19,7 +19,7 @@ export const Seo: React.FC<any> = props => {
     },
     {
       property: `og:type`,
-      content: `${postData ? "article" : "blog"}`,
+      content: `${pageData ? "article" : "blog"}`,
     },
     {
       name: `twitter:card`,
@@ -41,10 +41,10 @@ export const Seo: React.FC<any> = props => {
     },
   ]
 
-  if (postData) {
+  if (pageData) {
     const tags =
-      postData.tags && postData.tags.length
-        ? postData.tags.map((tag: any) => {
+      pageData.tags && pageData.tags.length
+        ? pageData.tags.map((tag: any) => {
             return {
               property: `article:tag`,
               content: tag.name,
@@ -55,23 +55,23 @@ export const Seo: React.FC<any> = props => {
       .concat([
         {
           name: `twitter:creator`,
-          content: postData.author.name,
+          content: pageData.author.name,
         },
         {
           property: `article:published_time`,
-          content: postData.createdAt.raw,
+          content: pageData.createdAt.raw,
         },
         {
           property: `article:modified_time`,
-          content: postData.updatedAt.raw,
+          content: pageData.updatedAt.raw,
         },
         {
           property: `article:author`,
-          content: postData.author.name,
+          content: pageData.author.name,
         },
         {
           property: `article:section`,
-          content: postData.mainCategory.name,
+          content: pageData.mainCategory.name,
         },
       ])
       .concat(tags)
@@ -82,7 +82,7 @@ export const Seo: React.FC<any> = props => {
       htmlAttributes={{
         lang: "en",
       }}
-      title={title || postData.yoast_wpseo_title}
+      title={title || pageData.yoast_wpseo_title}
       titleTemplate={title || (metaData && metaData.yoast_wpseo_title)}
       meta={metaTags}
     />

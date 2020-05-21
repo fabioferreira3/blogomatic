@@ -23,7 +23,7 @@ export const CategoryButton = withStyles(theme => ({
     borderRadius: 5,
     boxShadow: "none",
     color: theme.palette.text.secondary,
-    padding: 0,
+    padding: "5 10 5 10",
     "&:hover": {
       background: theme.palette.secondary.dark,
       boxShadow: "none",
@@ -111,7 +111,7 @@ const BlogPostTemplate: React.FC<any> = ({ data }) => {
   return (
     <App>
       <MainLayout>
-        <SEO postData={postData} />
+        <SEO pageData={postData} />
         {post}
       </MainLayout>
     </App>
