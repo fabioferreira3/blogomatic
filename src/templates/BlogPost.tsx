@@ -13,6 +13,7 @@ import { useFeaturedPosts } from "../hooks/useFeaturedPosts"
 import { normalizePost } from "../normalizers/post"
 import { blogPostStyles } from "./BlogPost.styles"
 import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
+import "@wordpress/block-library/build-style/style.css"
 
 export const CategoryButton = withStyles(theme => ({
   root: {
@@ -96,7 +97,7 @@ const BlogPostTemplate: React.FC<any> = ({ data }) => {
             <MiniPosts posts={featuredPosts} />
           </Grid>
         </Grid>
-        <Grid container xs={12} style={{ padding: 25 }}>
+        <Grid container item xs={12} style={{ padding: 25 }}>
           <Typography variant={"h3"} color={"textPrimary"}>
             More Posts
           </Typography>
