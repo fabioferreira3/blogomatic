@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
         style={{ borderTop: "1px solid #e5e5e5", paddingTop: 5 }}
       >
         <Typography variant={"body2"} color={"textSecondary"}>
-          Ultimate Health Blog @{new Date().getFullYear()} / All Rights reserved
+          {process.env.GATSBY_SITENAME} Blog @{new Date().getFullYear()} / All Rights reserved
         </Typography>
       </Grid>
     </Grid>

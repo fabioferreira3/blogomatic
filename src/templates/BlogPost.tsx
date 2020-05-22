@@ -112,7 +112,7 @@ const BlogPostTemplate: React.FC<any> = ({ data }) => {
   return (
     <App>
       <MainLayout>
-        <SEO pageData={postData} />
+        <SEO metaData={postData.yoastHead} />
         {post}
       </MainLayout>
     </App>

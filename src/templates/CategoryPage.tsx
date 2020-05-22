@@ -14,7 +14,7 @@ const CategoryPageTemplate: React.FC<any> = ({ data }) => {
   const classes = categoryPageStyles()
   const {
     name: categoryName,
-    description: categoryDescription,
+    yoast_head: metaData,
   } = data.wordpressCategory
   const posts = normalizePosts(data.allWordpressPost.nodes, "wp")
 
@@ -38,7 +38,7 @@ const CategoryPageTemplate: React.FC<any> = ({ data }) => {
   return (
     <App>
       <MainLayout>
-        <Seo title={categoryName} description={categoryDescription} />
+        <Seo title={categoryName} metaData={metaData}/>
         <Grid container>
           <Grid item xs={12} className={classes.headerWrapper}>
             <CategoryHeader />
@@ -59,7 +59,7 @@ export const query = graphql`
   query($id: Int!) {
     wordpressCategory(wordpress_id: { eq: $id }) {
       name
-      description
+      yoast_head
     }
     allWordpressPost(
       filter: { categories: { elemMatch: { wordpress_id: { eq: $id } } } }

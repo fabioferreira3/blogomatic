@@ -19,7 +19,7 @@ const Index: React.FC<any> = () => {
   return (
     <App>
       <MainLayout>
-        <Seo title="Ultimate Health" />
+        <Seo title={process.env.GATSBY_SITENAME} />
         <Grid container justify={"center"}>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
             <SmallPostsVertical posts={featuredPosts} />

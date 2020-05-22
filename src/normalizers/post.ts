@@ -33,7 +33,7 @@ export const normalizePost: any = (rawPostData: any, source: any) => {
       formated: moment(rawPostData.modified).format("MMMM DD, YYYY"),
     },
     tags: rawPostData.tags,
-    metaData: rawPostData.yoast_meta,
+    yoastHead: rawPostData.yoast_head,
   }
 }
 
