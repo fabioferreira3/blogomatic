@@ -12,14 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/content/${process.env.GATSBY_THEME}/assets`,
         name: `assets`,
       },
     },
@@ -95,13 +88,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Ultimate Health - Life is in the nature`,
-        short_name: `Ultimate Health`,
+        name: process.env.GATSBY_MANIFEST_NAME,
+        short_name: process.env.GATSBY_MANIFEST_SHORTNAME,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#${process.env.GATSBY_THEME_COLOR}`,
         display: `minimal-ui`,
-        icon: `content/assets/favicon.png`,
+        icon: `content/${process.env.GATSBY_THEME}/assets/favicon.png`,
       },
     },
     {
