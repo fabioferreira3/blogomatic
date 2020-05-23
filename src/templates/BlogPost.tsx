@@ -3,6 +3,7 @@ import { Box, Button, Grid, Typography } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
 import { graphql, navigate } from "gatsby"
 import Img from "gatsby-image"
+import parse from "html-react-parser"
 
 import SEO from "../components/Seo"
 import { App } from "../components/App"
@@ -14,6 +15,7 @@ import { normalizePost } from "../normalizers/post"
 import { blogPostStyles } from "./BlogPost.styles"
 import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
 import "@wordpress/block-library/build-style/style.css"
+import { SimuladorPoupanca } from "../components/Specific/SimuladorPoupanca"
 
 export const CategoryButton = withStyles(theme => ({
   root: {
@@ -32,15 +34,19 @@ export const CategoryButton = withStyles(theme => ({
   },
 }))(Button)
 
-const BlogPostTemplate: React.FC<any> = ({ data }) => {
+const BlogPostTemplate: React.FC<any> = props => {
+  const { data, pageContext } = props
+  const { textContent } = pageContext
   const rawPostData = data.wordpressPost
   const postData = normalizePost(rawPostData, "wp")
   const classes = blogPostStyles()
   const featuredPosts = useFeaturedPosts()
 
   const post = useMemo(() => {
+    console.log(postData, "post")
     return (
       <Grid container>
+        {postData.slug === "simulador-de-poupanca" && <SimuladorPoupanca />}
         <Grid item xs={12} sm={9} className={classes.postWrapper}>
           <CategoryButton
             onClick={() => navigate(`/category/${postData.mainCategory.slug}`)}
@@ -74,9 +80,7 @@ const BlogPostTemplate: React.FC<any> = ({ data }) => {
             className={classes.contentWrapper}
           >
             <Grid item xs={12} sm={3}>
-              <Typography variant={"h3"} color={"textPrimary"}>
-                Col
-              </Typography>
+              <Typography variant={"h3"} color={"textPrimary"}></Typography>
             </Grid>
             <Grid item xs={12} sm={9}>
               <Typography
@@ -84,14 +88,14 @@ const BlogPostTemplate: React.FC<any> = ({ data }) => {
                 component={"div"}
                 color={"textPrimary"}
               >
-                <div dangerouslySetInnerHTML={{ __html: postData.content }} />
+                <Box>{parse(postData.content)}</Box>
               </Typography>
             </Grid>
           </Grid>
         </Grid>
         <Grid item style={{ padding: 20 }} xs={12} md={3}>
           <Typography variant={"h3"} color={"textPrimary"}>
-            Latest posts
+            {textContent.LATEST_POSTS}
           </Typography>
           <Grid container style={{ marginTop: 30 }}>
             <MiniPosts posts={featuredPosts} />
@@ -99,7 +103,7 @@ const BlogPostTemplate: React.FC<any> = ({ data }) => {
         </Grid>
         <Grid container item xs={12} style={{ padding: 25 }}>
           <Typography variant={"h3"} color={"textPrimary"}>
-            More Posts
+            {textContent.MORE_POSTS}
           </Typography>
           <Grid container>
             <SmallPostsHorizontal posts={featuredPosts} />

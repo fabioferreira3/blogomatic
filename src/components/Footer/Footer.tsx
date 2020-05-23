@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import {
   Box,
   Grid,
@@ -7,6 +7,7 @@ import {
   ListItemText,
   Typography,
 } from "@material-ui/core"
+import { withStyles } from "@material-ui/styles"
 import { navigate } from "gatsby"
 
 import { useFeaturedPosts } from "../../hooks/useFeaturedPosts"
@@ -15,13 +16,14 @@ import { MiniPost } from "../Post/MiniPost/MiniPost"
 import { Logo } from "../Logo/Logo"
 import { footerStyles } from "./Footer.styles"
 import { useSiteMetadata } from "../../hooks/useSiteMetadata"
-import { withStyles } from "@material-ui/styles"
+import { RootContext } from "../App"
 
 export const Footer: React.FC = () => {
   const classes = footerStyles()
   const featuredPosts = useFeaturedPosts()
   const categories = useCategories()
   const siteMetadata = useSiteMetadata()
+  const { textContent } = useContext(RootContext)
 
   return (
     <Grid container className={classes.wrapper}>
@@ -51,7 +53,7 @@ export const Footer: React.FC = () => {
           color={"textSecondary"}
           className={classes.itemHeader}
         >
-          Follow us
+          {textContent.FOLLOW_US}
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6} md={3} className={classes.columnWrapper}>
@@ -60,22 +62,7 @@ export const Footer: React.FC = () => {
           className={classes.itemHeader}
           color={"textSecondary"}
         >
-          Featured
-        </Typography>
-        {featuredPosts &&
-          featuredPosts.map((post: any) => (
-            <Grid item key={post.id} className={classes.postWrapper}>
-              <MiniPost {...post} />
-            </Grid>
-          ))}
-      </Grid>
-      <Grid item xs={12} sm={6} md={3} className={classes.columnWrapper}>
-        <Typography
-          variant={"h4"}
-          className={classes.itemHeader}
-          color={"textSecondary"}
-        >
-          Popular
+          {textContent.FEATURED}
         </Typography>
         {featuredPosts &&
           featuredPosts.map((post: any) => (
@@ -90,7 +77,22 @@ export const Footer: React.FC = () => {
           className={classes.itemHeader}
           color={"textSecondary"}
         >
-          Categories
+          {textContent.POPULAR}
+        </Typography>
+        {featuredPosts &&
+          featuredPosts.map((post: any) => (
+            <Grid item key={post.id} className={classes.postWrapper}>
+              <MiniPost {...post} />
+            </Grid>
+          ))}
+      </Grid>
+      <Grid item xs={12} sm={6} md={3} className={classes.columnWrapper}>
+        <Typography
+          variant={"h4"}
+          className={classes.itemHeader}
+          color={"textSecondary"}
+        >
+          {textContent.CATEGORIES}
         </Typography>
         <List>
           {categories.map((category: any) => {
@@ -112,7 +114,8 @@ export const Footer: React.FC = () => {
         style={{ borderTop: "1px solid #e5e5e5", paddingTop: 5 }}
       >
         <Typography variant={"body2"} color={"textSecondary"}>
-          {process.env.GATSBY_SITENAME} Blog @{new Date().getFullYear()} / All Rights reserved
+          {process.env.GATSBY_SITENAME} Blog @{new Date().getFullYear()} /{" "}
+          {textContent.COPYRIGHT}
         </Typography>
       </Grid>
     </Grid>

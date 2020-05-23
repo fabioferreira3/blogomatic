@@ -1,4 +1,6 @@
 const path = require(`path`)
+const textContent_EN = require("./src/texts/en")
+const textContent_PT = require("./src/texts/pt")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
 
@@ -24,6 +26,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
 
     const BlogPosts = postResults.data.allWordpressPost.nodes
+    const textContent = process.env.GATSBY_LANGUAGE === 'en' ? textContent_EN : textContent_PT
 
     BlogPosts.forEach(post => {
       createPage({
@@ -31,6 +34,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: BlogPostTemplate,
         context: {
           id: post.wordpress_id,
+          textContent
         },
       })
     })

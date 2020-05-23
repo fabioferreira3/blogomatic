@@ -1,0 +1,141 @@
+.mainStuffWrapper {
+    font-family: "Bree Serif";
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: calc(100vh - 80px);
+}
+
+.secondaryStuffWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.yieldWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    height:20vh;
+}
+
+.yield {
+    color: #00a651;
+    font-size: 10em;
+}
+
+.yieldComp {
+    font-size: 2.5em;
+}
+
+.inputWrapper {
+    width: 100%;
+    max-height: 5%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+.inputWrapper input {
+    margin-left: 5px;
+    max-width: 250px;
+    border: 1px solid #d1d1d1;
+}
+
+.inputWrapper .input {
+    margin-left: 10px
+}
+
+.monthly {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+.monthly h3 {
+    margin: 0;
+    font-size: 1em;
+
+}
+
+.monthYield {
+    display: flex;
+    margin-top: 15px;
+}
+
+.month {
+    color: #3f3f3f;
+    margin-right: 0.5em;
+}
+
+.monthResult {
+    color: #3f3f3f;
+    font-size: 1.5em;
+}
+
+.yieldBlocks {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.firstSemesterBlock, .secondSemesterBlock {
+    border-top: 1px solid #2b81d1;
+    padding: 0 10px 10px 10px;
+}
+
+.firstSemesterBlock {
+    border-right: 1px solid #2b81d1;
+}
+
+@media screen and (max-width: 768px) {
+    .yield {
+        font-size: 5em;
+    }
+    .yieldComp {
+        font-size: 1.25em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mainStuffWrapper {
+        height: 100%;
+    }
+    .monthly {
+        height: 100%;
+    }
+    .inputWrapper {
+        max-height: inherit;
+    }
+    .inputWrapper span {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .inputWrapper .input, .inputWrapper input {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        height: 48px;
+        font-size: 1.3em;
+        color: #3f3f3f;
+        text-align: center;
+    }
+    .firstSemesterBlock, .secondSemesterBlock {
+        border: none;
+        padding-bottom: 0;
+    }
+}

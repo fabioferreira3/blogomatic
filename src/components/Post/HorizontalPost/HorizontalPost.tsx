@@ -1,15 +1,18 @@
-import React, { useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import { Box, Grid, Typography } from "@material-ui/core"
 import { Link, navigate } from "gatsby"
 import Img from "gatsby-image"
+import parse from "html-react-parser"
 
 import { horizontalPostStyles } from "./HorizontalPost.styles"
 import { PostActionButton } from "../../Common/PostActionButton"
 import { PostTimestamp } from "../../Common/PostTimestamp"
 import { PostAuthor } from "../../Common/PostAuthor"
+import { RootContext } from "../../App"
 
 export const HorizontalPost: React.FC<any> = props => {
   const { author, featuredImageSource, updatedAt, slug, summary, title } = props
+  const { textContent } = useContext(RootContext)
   const classes = horizontalPostStyles()
 
   useEffect(() => {
@@ -32,18 +35,20 @@ export const HorizontalPost: React.FC<any> = props => {
         <Grid container alignItems={"center"}>
           <PostTimestamp date={updatedAt.formated} displayIcon={true} />
         </Grid>
-        <Link to={`/${slug}`} className={classes.link}>
-          <Typography
-            variant={"h2"}
-            color={"textPrimary"}
-            className={classes.title}
-          >
-            {title}
+        <Grid container direction={"column"}>
+          <Link to={`/${slug}`} className={classes.link}>
+            <Typography
+              variant={"h2"}
+              color={"textPrimary"}
+              className={classes.title}
+            >
+              {title}
+            </Typography>
+          </Link>
+          <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
+            <Box>{parse(summary)}</Box>
           </Typography>
-        </Link>
-        <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
-          <div dangerouslySetInnerHTML={{ __html: summary }} />
-        </Typography>
+        </Grid>
 
         <PostAuthor
           authorName={author.name}
@@ -55,7 +60,7 @@ export const HorizontalPost: React.FC<any> = props => {
           style={{ marginTop: 20 }}
           onClick={() => navigate(slug)}
         >
-          Read More
+          {textContent.READ_MORE}
         </PostActionButton>
       </Grid>
     </Grid>

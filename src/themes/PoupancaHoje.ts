@@ -2,19 +2,19 @@ import { createMuiTheme } from "@material-ui/core/styles"
 
 type PreferenceT = "dark" | "light"
 
-const CafeNaVeiaTheme = (preference: PreferenceT) => {
+const PoupancaHojeTheme = (preference: PreferenceT) => {
   return createMuiTheme({
     palette: {
       type: preference,
       primary: {
-        main: "#61C6FF",
-        light: "#94d8fc",
-        dark: "#35a2dd",
+        main: "#00a651",
+        light: "#02cd65",
+        dark: "#018843",
       },
       secondary: {
-        main: "#FF0154",
-        light: "#ff5b8f",
-        dark: "#c90442",
+        main: "#444545",
+        light: "#616363",
+        dark: "#2b2c2c",
       },
       text: {
         primary: "#515151",
@@ -26,7 +26,7 @@ const CafeNaVeiaTheme = (preference: PreferenceT) => {
       tonalOffset: 0.2,
     },
     typography: {
-      fontFamily: "Acme",
+      fontFamily: "Bree Serif",
       fontWeightLight: 300,
       fontWeightMedium: 400,
       fontWeightBold: 700,
@@ -55,11 +55,11 @@ const CafeNaVeiaTheme = (preference: PreferenceT) => {
       },
       body1: {
         fontSize: 18,
-        fontFamily: "Pontano Sans",
+        fontFamily: "Bree Serif",
       },
       body2: {
         fontSize: 14,
-        fontFamily: "Pontano Sans",
+        fontFamily: "Bree Serif",
       },
       button: {
         letterSpacing: 1,
@@ -79,4 +79,4 @@ const CafeNaVeiaTheme = (preference: PreferenceT) => {
   })
 }
 
-export default CafeNaVeiaTheme
+export default PoupancaHojeTheme

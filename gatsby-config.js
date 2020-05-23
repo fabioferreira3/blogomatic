@@ -2,12 +2,19 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Blogomatic`,
-    description: `Infinite blogs`,
+    title: process.env.GATSBY_SITENAME,
+    description: process.env.GATSBT_SITE_DESCRIPTION,
     author: `@fabioferreira_web`,
-    siteUrl: "http://localhost:7100",
+    siteUrl: process.env.GATSBY_URL,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS,
+        head: true
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -27,11 +34,15 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Pontano Sans",
+              family: "Acme",
               variants: ["300", "400", "500"],
             },
             {
-              family: "Acme",
+              family: "Bree Serif",
+              variants: ["300", "400", "500"],
+            },
+            {
+              family: "Pontano Sans",
               variants: ["300", "400", "500"],
             },
           ],
@@ -62,12 +73,6 @@ module.exports = {
     // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     //trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -133,6 +138,15 @@ module.exports = {
           "**/yoast/v1/statistics",
           "**/yoast/v1/configurator"
         ],
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: process.env.GATSBY_WP_URL,
+              protocol: process.env.GATSBY_WP_PROTOCOL,
+            }
+          }
+        ]
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

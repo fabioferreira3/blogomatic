@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import { Box, Grid, Typography } from "@material-ui/core"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
@@ -7,9 +7,11 @@ import { PostActionButton } from "../../Common/PostActionButton"
 import { verticalPostStyles } from "./VerticalPost.styles"
 import { PostTimestamp } from "../../Common/PostTimestamp"
 import { PostAuthor } from "../../Common/PostAuthor"
+import { RootContext } from "../../App"
 
 export const VerticalPost: React.FC<any> = props => {
   const { author, featuredImageSource, updatedAt, title, summary, slug } = props
+  const { textContent } = useContext(RootContext)
   const classes = verticalPostStyles()
 
   useEffect(() => {
@@ -59,7 +61,7 @@ export const VerticalPost: React.FC<any> = props => {
         style={{ marginTop: 20 }}
         onClick={() => navigate(slug)}
       >
-        Read More
+        {textContent.READ_MORE}
       </PostActionButton>
     </Grid>
   )

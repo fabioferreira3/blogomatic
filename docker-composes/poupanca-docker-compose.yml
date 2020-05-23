@@ -18,6 +18,7 @@ services:
       - poupancahoje_database
     volumes:
       - poupancahoje_wordpress:/var/www/html
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
   poupancahoje_database:
     container_name: poupancahoje_db
