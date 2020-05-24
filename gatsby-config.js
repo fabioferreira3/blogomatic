@@ -44,8 +44,8 @@ module.exports = {
               variants: ["300", "400", "500"],
             },
             {
-              family: "Bree Serif",
-              variants: ["300", "400", "500"],
+              family: "Bree+Serif",
+              variants: ["400"],
             },
             {
               family: "Pontano Sans",

@@ -26,40 +26,38 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
       tonalOffset: 0.2,
     },
     typography: {
-      fontFamily: "Bree Serif",
+      fontFamily: "Bree+Serif",
       fontWeightLight: 300,
       fontWeightMedium: 400,
       fontWeightBold: 700,
       h1: {
         letterSpacing: 1,
         fontSize: 35,
-        fontWeight: 700,
+        fontWeight: "bold",
       },
       h2: {
         fontSize: 30,
-        fontWeight: 700,
+        fontWeight: "bold",
         letterSpacing: 1,
         textTransform: "uppercase",
       },
       h3: {
         fontSize: 20,
-        fontWeight: 700,
+        fontWeight: "bold",
         letterSpacing: 1,
         textTransform: "uppercase",
       },
       h4: {
         fontSize: 14,
-        fontWeight: 700,
+        fontWeight: "bold",
         letterSpacing: 1,
         textTransform: "uppercase",
       },
       body1: {
         fontSize: 18,
-        fontFamily: "Bree Serif",
       },
       body2: {
         fontSize: 14,
-        fontFamily: "Bree Serif",
       },
       button: {
         letterSpacing: 1,
