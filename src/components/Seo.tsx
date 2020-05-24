@@ -4,7 +4,7 @@ import parse from "html-react-parser"
 
 export const Seo: React.FC<any> = props => {
   const { title, metaData = null } = props
-
+  console.log(metaData)
   return (
     <Helmet
       htmlAttributes={{

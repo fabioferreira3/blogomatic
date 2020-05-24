@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { Box, Grid, Typography } from "@material-ui/core"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
+import parse from "html-react-parser"
 
 import { PostActionButton } from "../../Common/PostActionButton"
 import { verticalPostStyles } from "./VerticalPost.styles"
@@ -38,12 +39,12 @@ export const VerticalPost: React.FC<any> = props => {
           variant={"h2"}
           color={"textPrimary"}
         >
-          {title}
+          {parse(title)}
         </Typography>
       </Link>
 
       <Typography variant={"body1"} component={"div"} color={"textPrimary"}>
-        <div dangerouslySetInnerHTML={{ __html: summary }} />
+        {parse(summary)}
       </Typography>
       <Grid
         container

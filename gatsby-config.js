@@ -5,7 +5,7 @@ module.exports = {
     title: process.env.GATSBY_SITENAME,
     description: process.env.GATSBT_SITE_DESCRIPTION,
     author: `@fabioferreira_web`,
-    siteUrl: process.env.GATSBY_URL,
+    siteUrl: process.env.GATSBY_PRODUCTION_SITE_URL,
   },
   plugins: [
     {
@@ -16,6 +16,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://www.poupancahoje.com`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

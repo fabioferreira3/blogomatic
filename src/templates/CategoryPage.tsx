@@ -1,22 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Grid, Typography } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
 import { graphql } from "gatsby"
 
 import { normalizePosts } from "../normalizers/post"
 import { MainLayout } from "../layouts/MainLayout"
-import { App } from "../components/App"
+import { App, RootContext } from "../components/App"
 import { HorizontalPosts } from "../components/PostWrappers/HorizontalPosts"
 import { categoryPageStyles } from "./CategoryPage.styles"
 import Seo from "../components/Seo"
 
 const CategoryPageTemplate: React.FC<any> = ({ data }) => {
   const classes = categoryPageStyles()
-  const {
-    name: categoryName,
-    yoast_head: metaData,
-  } = data.wordpressCategory
-  const posts = normalizePosts(data.allWordpressPost.nodes, "wp")
+  const { locale } = useContext(RootContext)
+  const { name: categoryName, yoast_head: metaData } = data.wordpressCategory
+  const posts = normalizePosts(data.allWordpressPost.nodes, "wp", locale)
 
   const CategoryHeader = withStyles(theme => ({
     root: {
@@ -38,7 +36,7 @@ const CategoryPageTemplate: React.FC<any> = ({ data }) => {
   return (
     <App>
       <MainLayout>
-        <Seo title={categoryName} metaData={metaData}/>
+        <Seo title={categoryName} metaData={metaData} />
         <Grid container>
           <Grid item xs={12} className={classes.headerWrapper}>
             <CategoryHeader />

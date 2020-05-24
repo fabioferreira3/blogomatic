@@ -1,4 +1,5 @@
 module.exports = {
+  BY: "by",
   COPYRIGHT: "All Rights Reserved",
   CATEGORIES: "Categories",
   FEATURED: "Featured",

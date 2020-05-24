@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { Box, Grid, Typography } from "@material-ui/core"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
+import parse from 'html-react-parser'
 
 import { squarePostStyles } from "./SquarePost.styles"
 import { BlackOverlay } from "../../Common/BlackOverlay"
@@ -27,7 +28,7 @@ export const SquarePost: React.FC<any> = props => {
       )}
       <Link to={`/${slug}`} className={classes.link}>
         <Typography variant={"h3"} className={classes.title}>
-          {title}
+          {parse(title)}
         </Typography>
       </Link>
     </Grid>

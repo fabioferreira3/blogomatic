@@ -13,8 +13,8 @@ import { MiniPosts } from "../components/PostWrappers/MiniPosts"
 import { useFeaturedPosts } from "../hooks/useFeaturedPosts"
 import { normalizePost } from "../normalizers/post"
 import { blogPostStyles } from "./BlogPost.styles"
-import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
 import "@wordpress/block-library/build-style/style.css"
+import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
 import { SimuladorPoupanca } from "../components/Specific/SimuladorPoupanca"
 
 export const CategoryButton = withStyles(theme => ({
@@ -36,14 +36,13 @@ export const CategoryButton = withStyles(theme => ({
 
 const BlogPostTemplate: React.FC<any> = props => {
   const { data, pageContext } = props
-  const { textContent } = pageContext
+  const { textContent, locale } = pageContext
   const rawPostData = data.wordpressPost
-  const postData = normalizePost(rawPostData, "wp")
+  const postData = normalizePost(rawPostData, "wp", locale)
   const classes = blogPostStyles()
   const featuredPosts = useFeaturedPosts()
 
   const post = useMemo(() => {
-    console.log(postData, "post")
     return (
       <Grid container>
         {postData.slug === "simulador-de-poupanca" && <SimuladorPoupanca />}
@@ -58,7 +57,7 @@ const BlogPostTemplate: React.FC<any> = props => {
             color={"textPrimary"}
             className={classes.title}
           >
-            {postData.title}
+            {parse(postData.title)}
           </Typography>
           <Box className={classes.authorWrapper}>
             <PostAuthor

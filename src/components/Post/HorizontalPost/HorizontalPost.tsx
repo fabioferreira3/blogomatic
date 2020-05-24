@@ -42,7 +42,7 @@ export const HorizontalPost: React.FC<any> = props => {
               color={"textPrimary"}
               className={classes.title}
             >
-              {title}
+              {parse(title)}
             </Typography>
           </Link>
           <Typography variant={"body1"} component={"div"} color={"textPrimary"}>

@@ -27,6 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const BlogPosts = postResults.data.allWordpressPost.nodes
     const textContent = process.env.GATSBY_LANGUAGE === 'en' ? textContent_EN : textContent_PT
+    const locale = process.env.GATSBY_LANGUAGE === 'en' ? 'en' : 'pt_BR'
 
     BlogPosts.forEach(post => {
       createPage({
@@ -34,7 +35,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: BlogPostTemplate,
         context: {
           id: post.wordpress_id,
-          textContent
+          textContent,
+          locale
         },
       })
     })

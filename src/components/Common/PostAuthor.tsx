@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import VisibilityIcon from "@material-ui/icons/Visibility"
 import { Avatar, Grid, Typography } from "@material-ui/core"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { makeStyles } from "@material-ui/core/styles"
+import { RootContext } from "../App"
 
 export const PostAuthor: React.FC<any> = props => {
   const { authorName, imageSource } = props
+  const { textContent } = useContext(RootContext)
   const likeCount = Math.floor(Math.random() * 600) + 300
   const viewCount = Math.floor(Math.random() * 4000) + 2000
   const avatarClasses = makeStyles(theme => ({
@@ -34,7 +36,7 @@ export const PostAuthor: React.FC<any> = props => {
           classes={avatarClasses}
           className={classes.avatar}
         />
-        <Typography className={classes.authorName}>by {authorName}</Typography>
+        <Typography className={classes.authorName}>{textContent.BY} {authorName}</Typography>
       </Grid>
       <Grid container item alignItems={"center"} justify={"flex-end"}>
         <VisibilityIcon className={classes.visibilityIcon} />

@@ -1,6 +1,11 @@
 import moment from "moment"
 
-export const normalizePost: any = (rawPostData: any, source: any) => {
+export const normalizePost: any = (
+  rawPostData: any,
+  source: any,
+  locale: string
+) => {
+  moment.locale(locale)
   if (source !== "wp") {
     return null
   }
@@ -37,11 +42,15 @@ export const normalizePost: any = (rawPostData: any, source: any) => {
   }
 }
 
-export const normalizePosts: any = (rawPostsData: any, source: any) => {
+export const normalizePosts: any = (
+  rawPostsData: any,
+  source: any,
+  locale: string
+) => {
   if (source !== "wp") {
     return null
   }
   return rawPostsData.map((rawPostData: any) =>
-    normalizePost(rawPostData, source)
+    normalizePost(rawPostData, source, locale)
   )
 }

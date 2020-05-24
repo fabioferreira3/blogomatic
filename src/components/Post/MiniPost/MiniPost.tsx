@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { Box, Grid, Typography } from "@material-ui/core"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
+import parse from 'html-react-parser'
 
 import { miniPostStyles } from "./MiniPost.styles"
 import { PostTimestamp } from "../../Common/PostTimestamp"
@@ -36,7 +37,7 @@ export const MiniPost: React.FC<any> = props => {
         <PostTimestamp date={updatedAt.formated} />
         <Link to={`/${slug}`} className={classes.link}>
           <Typography variant={"h4"} color={"textPrimary"}>
-            {title}
+            {parse(title)}
           </Typography>
         </Link>
       </Grid>
