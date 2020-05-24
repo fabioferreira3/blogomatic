@@ -28,6 +28,7 @@ services:
       MYSQL_DATABASE: 'cafenaveia_db'
       MYSQL_ROOT_PASSWORD: 'mysql'
     volumes:
+      - ./database:/app
       - cafenaveia_database:/var/lib/mysql
 
 volumes:

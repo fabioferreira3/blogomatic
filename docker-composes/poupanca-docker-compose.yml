@@ -29,6 +29,7 @@ services:
       MYSQL_DATABASE: 'poupancahoje_db'
       MYSQL_ROOT_PASSWORD: 'mysql'
     volumes:
+      - ./database:/app
       - poupancahoje_database:/var/lib/mysql
 
 volumes:

@@ -28,6 +28,7 @@ services:
       MYSQL_DATABASE: 'ultimatehealth_db'
       MYSQL_ROOT_PASSWORD: 'mysql'
     volumes:
+      - ./database:/app
       - ultimatehealth_database:/var/lib/mysql
 
 volumes:
