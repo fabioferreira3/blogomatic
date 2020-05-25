@@ -32,7 +32,7 @@ export const HorizontalPost: React.FC<any> = props => {
         )}
       </Grid>
       <Grid container xs={12} sm={6} item className={classes.contentWrapper}>
-        <Grid container alignItems={"center"}>
+        <Grid container alignItems={"center"} className={classes.timestampWrapper}>
           <PostTimestamp date={updatedAt.formated} displayIcon={true} />
         </Grid>
         <Grid container direction={"column"}>
