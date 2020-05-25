@@ -32,6 +32,7 @@ export const PostAuthor: React.FC<any> = props => {
     <Grid container alignItems={"center"} wrap={"nowrap"}>
       <Grid container item alignItems={"center"}>
         <Avatar
+          alt={authorName}
           src={imageSource}
           classes={avatarClasses}
           className={classes.avatar}
