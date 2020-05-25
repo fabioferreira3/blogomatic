@@ -8,7 +8,7 @@ import { squarePostStyles } from "./SquarePost.styles"
 import { BlackOverlay } from "../../Common/BlackOverlay"
 
 export const SquarePost: React.FC<any> = props => {
-  const { featuredImageSource, hasOverlay, slug, title } = props
+  const { featuredImage, hasOverlay, slug, title } = props
   const classes = squarePostStyles()
 
   useEffect(() => {
@@ -17,13 +17,13 @@ export const SquarePost: React.FC<any> = props => {
 
   return (
     <Grid item className={classes.wrapper}>
-      {featuredImageSource && (
+      {featuredImage && (
         <Box
           className={classes.mainImageWrapper}
           onClick={() => navigate(slug)}
         >
           {hasOverlay && <BlackOverlay />}
-          <Img fluid={featuredImageSource} className={classes.mainImage} />
+          <Img fluid={featuredImage.imageSource} alt={featuredImage.alt} title={featuredImage.title} className={classes.mainImage} />
         </Box>
       )}
       <Link to={`/${slug}`} className={classes.link}>

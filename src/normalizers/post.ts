@@ -25,8 +25,11 @@ export const normalizePost: any = (
           slug: rawPostData.categories[0].slug,
         }
       : null,
-    featuredImageSource:
-      rawPostData.featured_media.localFile.childImageSharp.fluid,
+    featuredImage: {
+      alt: rawPostData.featured_media.alt_text,
+      title: rawPostData.featured_media.title,
+      imageSource: rawPostData.featured_media.localFile.childImageSharp.fluid,
+    },
     author: {
       name: rawPostData.author.name,
       imageSource: rawPostData.author.avatar_urls.wordpress_96,

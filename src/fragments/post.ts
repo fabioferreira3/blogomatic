@@ -14,6 +14,8 @@ export const wpPost = graphql`
     slug
     title
     featured_media {
+      alt_text
+      title
       localFile {
         ...fluidHdImage
       }

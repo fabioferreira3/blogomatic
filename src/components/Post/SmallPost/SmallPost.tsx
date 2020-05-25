@@ -10,7 +10,7 @@ import { PostTimestamp } from "../../Common/PostTimestamp"
 export const SmallPost: React.FC<any> = props => {
   const classes = smallPostStyles()
 
-  const { featuredImageSource, updatedAt, slug, title } = props
+  const { featuredImage, updatedAt, slug, title } = props
 
   useEffect(() => {
     console.log(`VERTICAL SMALL POST:: ${title} rendered`)
@@ -18,12 +18,12 @@ export const SmallPost: React.FC<any> = props => {
 
   return (
     <Grid container direction={"column"} style={{ marginBottom: 25 }}>
-      {featuredImageSource && (
+      {featuredImage && (
         <Box
           className={classes.mainImageWrapper}
           onClick={() => navigate(slug)}
         >
-          <Img fluid={featuredImageSource} className={classes.mainImage} />
+          <Img fluid={featuredImage.imageSource} alt={featuredImage.alt} title={featuredImage.title} className={classes.mainImage} />
         </Box>
       )}
       <Grid

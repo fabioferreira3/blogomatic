@@ -11,7 +11,7 @@ import { PostAuthor } from "../../Common/PostAuthor"
 import { RootContext } from "../../App"
 
 export const VerticalPost: React.FC<any> = props => {
-  const { author, featuredImageSource, updatedAt, title, summary, slug } = props
+  const { author, featuredImage, updatedAt, title, summary, slug } = props
   const { textContent } = useContext(RootContext)
   const classes = verticalPostStyles()
 
@@ -21,12 +21,12 @@ export const VerticalPost: React.FC<any> = props => {
 
   return (
     <Grid container item direction={"column"} className={classes.wrapper}>
-      {featuredImageSource && (
+      {featuredImage && (
         <Box
           className={classes.mainImageWrapper}
           onClick={() => navigate(slug)}
         >
-          <Img className={classes.mainImage} fluid={featuredImageSource} />
+          <Img className={classes.mainImage} fluid={featuredImage.imageSource} alt={featuredImage.alt} title={featuredImage.title} />
         </Box>
       )}
       <Grid container alignItems={"center"} style={{ marginTop: 10 }}>

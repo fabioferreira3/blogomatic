@@ -69,10 +69,12 @@ const BlogPostTemplate: React.FC<any> = props => {
               imageSource={postData.author.imageSource}
             />
           </Box>
-          {postData.featuredImageSource && (
+          {postData.featuredImage && (
             <Box className={classes.mainImageWrapper}>
               <Img
-                fluid={postData.featuredImageSource}
+                fluid={postData.featuredImage.imageSource}
+                alt={postData.featuredImage.alt}
+                title={postData.featuredImage.title}
                 className={classes.mainImage}
               />
             </Box>
