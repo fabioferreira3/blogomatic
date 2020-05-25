@@ -3,11 +3,12 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: process.env.GATSBY_SITENAME,
-    description: process.env.GATSBT_SITE_DESCRIPTION,
+    description: process.env.GATSBY_SITE_DESCRIPTION,
     author: `@fabioferreira_web`,
     siteUrl: process.env.GATSBY_PRODUCTION_SITE_URL,
   },
   plugins: [
+    `gatsby-plugin-remove-generator`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
