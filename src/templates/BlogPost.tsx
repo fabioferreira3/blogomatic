@@ -42,81 +42,152 @@ const BlogPostTemplate: React.FC<any> = props => {
   const classes = blogPostStyles()
   const featuredPosts = useFeaturedPosts()
 
-  const post = useMemo(() => {
-    return (
-      <Grid container>
-        {postData.slug === "simulador-de-poupanca" && <SimuladorPoupanca />}
-        <Grid item xs={12} sm={9} className={classes.postWrapper}>
-          <CategoryButton
-            onClick={() => navigate(`/category/${postData.mainCategory.slug}`)}
-          >
-            {postData.mainCategory.name}
-          </CategoryButton>
-          <Typography
-            variant={"h1"}
-            color={"textPrimary"}
-            className={classes.title}
-          >
-            {parse(postData.title)}
-          </Typography>
-          <Box className={classes.authorWrapper}>
-            <PostAuthor
-              authorName={postData.author.name}
-              imageSource={postData.author.imageSource}
-            />
-          </Box>
-          {postData.featuredImageSource && (
-            <Box className={classes.mainImageWrapper}>
-              <Img
-                fluid={postData.featuredImageSource}
-                className={classes.mainImage}
-              />
-            </Box>
-          )}
-          <Grid
-            container
-            justify={"space-between"}
-            className={classes.contentWrapper}
-          >
-            <Grid item xs={12} sm={3}>
-              <Typography variant={"h3"} color={"textPrimary"}></Typography>
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              <Typography
-                variant={"body1"}
-                component={"div"}
-                color={"textPrimary"}
-              >
-                <Box>{parse(postData.content)}</Box>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item style={{ padding: 20 }} xs={12} md={3}>
-          <Typography variant={"h3"} color={"textPrimary"}>
-            {textContent.LATEST_POSTS}
-          </Typography>
-          <Grid container style={{ marginTop: 30 }}>
-            <MiniPosts posts={featuredPosts} />
-          </Grid>
-        </Grid>
-        <Grid container item xs={12} style={{ padding: 25 }}>
-          <Typography variant={"h3"} color={"textPrimary"}>
-            {textContent.MORE_POSTS}
-          </Typography>
-          <Grid container>
-            <SmallPostsHorizontal posts={featuredPosts} />
-          </Grid>
-        </Grid>
-      </Grid>
-    )
-  }, [postData])
+  // const post = useMemo(() => {
+  //   return (
+  //     <Grid container>
+  //       {/*{postData.slug === "simulador-de-poupanca" && <Grid container xs={12}><SimuladorPoupanca /></Grid>}*/}
+  //       <Grid container item xs={12} sm={9} className={classes.postWrapper}>
+  //         <CategoryButton
+  //           onClick={() => navigate(`/category/${postData.mainCategory.slug}`)}
+  //         >
+  //           {postData.mainCategory.name}
+  //         </CategoryButton>
+  //         <Typography
+  //           variant={"h1"}
+  //           color={"textPrimary"}
+  //           className={classes.title}
+  //         >
+  //           {parse(postData.title)}
+  //         </Typography>
+  //         <Box className={classes.authorWrapper}>
+  //           <PostAuthor
+  //             authorName={postData.author.name}
+  //             imageSource={postData.author.imageSource}
+  //           />
+  //         </Box>
+  //         {postData.featuredImageSource && (
+  //           <Box className={classes.mainImageWrapper}>
+  //             <Img
+  //               fluid={postData.featuredImageSource}
+  //               className={classes.mainImage}
+  //             />
+  //           </Box>
+  //         )}
+  //         <Grid
+  //           container
+  //           justify={"space-between"}
+  //           className={classes.contentWrapper}
+  //         >
+  //           <Grid item xs={12} sm={3}>
+  //             <Typography variant={"h3"} color={"textPrimary"}></Typography>
+  //           </Grid>
+  //           <Grid item xs={12} sm={9}>
+  //             <Typography
+  //               variant={"body1"}
+  //               component={"div"}
+  //               color={"textPrimary"}
+  //             >
+  //               <Box>{parse(postData.content)}</Box>
+  //             </Typography>
+  //           </Grid>
+  //         </Grid>
+  //       </Grid>
+  //       <Grid container item style={{ padding: 20 }} xs={12} md={3}>
+  //         <Typography variant={"h3"} color={"textPrimary"}>
+  //           {textContent.LATEST_POSTS}
+  //         </Typography>
+  //         <Grid container style={{ marginTop: 30 }}>
+  //           <MiniPosts posts={featuredPosts} />
+  //         </Grid>
+  //       </Grid>
+  //       <Grid container item xs={12} style={{ padding: 25 }}>
+  //         <Typography variant={"h3"} color={"textPrimary"}>
+  //           {textContent.MORE_POSTS}
+  //         </Typography>
+  //         <Grid container>
+  //           <SmallPostsHorizontal posts={featuredPosts} />
+  //         </Grid>
+  //       </Grid>
+  //     </Grid>
+  //   )
+  // }, [postData])
 
   return (
     <App>
       <MainLayout>
         <SEO metaData={postData.yoastHead} />
-        {post}
+        <Grid container>
+          {/*{postData.slug === "simulador-de-poupanca" && <Grid container xs={12}><SimuladorPoupanca /></Grid>}*/}
+          <Grid container item xs={12} md={9} className={classes.postWrapper}>
+            <Grid container direction={"column"}>
+              <Box>
+                <CategoryButton
+                  onClick={() => navigate(`/category/${postData.mainCategory.slug}`)}
+                >
+                  {postData.mainCategory.name}
+                </CategoryButton>
+              </Box>
+              <Typography
+                variant={"h1"}
+                color={"textPrimary"}
+                className={classes.title}
+              >
+                {parse(postData.title)}
+              </Typography>
+              <Box className={classes.authorWrapper}>
+                <PostAuthor
+                  authorName={postData.author.name}
+                  imageSource={postData.author.imageSource}
+                />
+              </Box>
+              {postData.featuredImageSource && (
+                <Box className={classes.mainImageWrapper}>
+                  <Img
+                    fluid={postData.featuredImageSource}
+                    className={classes.mainImage}
+                  />
+                </Box>
+              )}
+            </Grid>
+
+            <Grid
+              container
+              justify={"space-between"}
+              className={classes.contentWrapper}
+            >
+              <Grid item xs={12} md={3}>
+                <Typography variant={"h3"} color={"textPrimary"}>COL</Typography>
+              </Grid>
+              <Grid item xs={12} md={9}>
+                <Typography
+                  variant={"body1"}
+                  component={"div"}
+                  color={"textPrimary"}
+                >
+                  <Box>{parse(postData.content)}</Box>
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid container item style={{ padding: 20 }} xs={12} md={3} direction={"column"}>
+            <Typography variant={"h3"} color={"textPrimary"}>
+              {textContent.LATEST_POSTS}
+            </Typography>
+            <Grid item style={{ marginTop: 30 }}>
+              <MiniPosts posts={featuredPosts} />
+            </Grid>
+          </Grid>
+        </Grid>
+          <Grid container item xs={12} style={{ padding: 25 }}>
+            <Typography variant={"h3"} color={"textPrimary"}>
+              {textContent.MORE_POSTS}
+            </Typography>
+            <Grid container>
+              <SmallPostsHorizontal posts={featuredPosts} />
+            </Grid>
+          </Grid>
+        )
       </MainLayout>
     </App>
   )

@@ -49,14 +49,34 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
       },
       body1: {
         fontSize: 18,
+        textAlign: "justify"
       },
       body2: {
         fontSize: 14,
+        textAlign: "justify"
       },
       button: {
         letterSpacing: 1,
         fontWeight: 700,
         fontSize: 18,
+      },
+    },
+    overrides: {
+      MuiCssBaseline: {
+        '@global': {
+          h1: {
+            textAlign: "left"
+          },
+          h2: {
+            textAlign: "left"
+          },
+          h3: {
+            textAlign: "left"
+          },
+          h4: {
+            textAlign: "left"
+          },
+        },
       },
     },
   })

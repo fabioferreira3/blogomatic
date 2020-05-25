@@ -41,10 +41,10 @@ const CategoryPageTemplate: React.FC<any> = ({ data }) => {
           <Grid item xs={12} className={classes.headerWrapper}>
             <CategoryHeader />
           </Grid>
-          <Grid item xs={12} sm={9} className={classes.categoryWrapper}>
+          <Grid item xs={12} md={9} className={classes.categoryWrapper}>
             <HorizontalPosts posts={posts} />
           </Grid>
-          <Grid item xs={12} sm={3}></Grid>
+          <Grid item xs={12} md={3}></Grid>
         </Grid>
       </MainLayout>
     </App>
