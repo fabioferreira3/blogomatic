@@ -26,28 +26,25 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
       tonalOffset: 0.2,
     },
     typography: {
-      fontFamily: "Bree+Serif",
-      fontWeightLight: 300,
-      fontWeightMedium: 400,
-      fontWeightBold: 700,
+      fontFamily: "Hind",
       h1: {
         fontSize: 40,
-        fontWeight: "bold",
+        fontWeight: 700,
         letterSpacing: 1,
       },
       h2: {
         fontSize: 30,
-        fontWeight: "bold",
+        fontWeight: 700,
         letterSpacing: 1,
       },
       h3: {
         fontSize: 20,
-        fontWeight: "bold",
+        fontWeight: 700,
         letterSpacing: 1,
       },
       h4: {
         fontSize: 14,
-        fontWeight: "bold",
+        fontWeight: 700,
         letterSpacing: 1,
       },
       body1: {

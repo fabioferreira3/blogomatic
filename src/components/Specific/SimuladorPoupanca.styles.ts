@@ -4,7 +4,10 @@ export const simuladorPoupancaStyles = () => {
   return makeStyles(theme => ({
     wrapper: {
       padding: 10,
-      height: "calc(100vh - 80px)"
+      height: "calc(100vh - 80px)",
+      [theme.breakpoints.down('sm')]: {
+        height: "100%"
+      }
     },
     yieldWrapper: {
       height:"20vh",
@@ -13,32 +16,57 @@ export const simuladorPoupancaStyles = () => {
     yield: {
       color: theme.palette.primary.main,
       fontSize: "10em",
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "7em"
+      }
     },
     yieldComp: {
       color: theme.palette.text.primary,
       fontSize: "2.5em",
-      fontWeight: "bold"
+      fontWeight: "bold",
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "1.8em"
+      }
     },
     inputWrapper: {
       width: "100%",
       maxHeight: "5%",
       marginBottom: 25,
-      fontSize: 20
+      fontSize: 20,
+      [theme.breakpoints.down('sm')]: {
+        maxHeight: "inherit"
+      }
     },
     inputBox: {
       marginLeft: 10,
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+        textAlign: "center",
+        marginBottom: 10
+      }
     },
     investmentInput: {
       marginLeft: 5,
       maxWidth: 250,
-      border: "1px solid #d1d1d1"
+      border: "1px solid #d1d1d1",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+        maxWidth: "100%",
+        margin: 0,
+        height: 48,
+        fontSize: "1.3em",
+        textAlign: "center"
+      }
     },
     monthly: {
       width: "100%",
       height: "30vh",
       marginTop: 20,
       marginBottom: 20,
-      paddingTop: 10
+      paddingTop: 10,
+      [theme.breakpoints.down('sm')]: {
+        height: "100%"
+      }
     },
     monthYield: {
       marginTop: 15

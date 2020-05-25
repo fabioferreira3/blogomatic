@@ -57,7 +57,7 @@ export const SimuladorPoupanca: React.FC<any> = () => {
   const [inputYield, setInputYield] = useState<any>(0)
   return (
     <Grid container className={classes.wrapper} direction={"column"} alignItems={"center"} justify={"center"}>
-      <Grid item className={classes.yieldWrapper} alignItems={"center"}>
+      <Grid container item className={classes.yieldWrapper} alignItems={"center"} justify={"center"}>
         <Typography component={'span'} className={classes.yield}>{yearYield.toFixed(2)}%</Typography>
         <Typography component={'span'} className={classes.yieldComp}>ao ano</Typography>
       </Grid>
