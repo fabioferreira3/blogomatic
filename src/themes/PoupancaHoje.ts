@@ -31,27 +31,24 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
       fontWeightMedium: 400,
       fontWeightBold: 700,
       h1: {
-        letterSpacing: 1,
-        fontSize: 35,
+        fontSize: 40,
         fontWeight: "bold",
+        letterSpacing: 1,
       },
       h2: {
         fontSize: 30,
         fontWeight: "bold",
         letterSpacing: 1,
-        textTransform: "uppercase",
       },
       h3: {
         fontSize: 20,
         fontWeight: "bold",
         letterSpacing: 1,
-        textTransform: "uppercase",
       },
       h4: {
         fontSize: 14,
         fontWeight: "bold",
         letterSpacing: 1,
-        textTransform: "uppercase",
       },
       body1: {
         fontSize: 18,
@@ -63,15 +60,6 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
         letterSpacing: 1,
         fontWeight: 700,
         fontSize: 18,
-      },
-    },
-    overrides: {
-      MuiCssBaseline: {
-        "@global": {
-          "@font-face": {
-            fontDisplay: "swap",
-          },
-        },
       },
     },
   })

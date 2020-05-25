@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { Box, Grid, Typography } from "@material-ui/core"
 import NumberFormat from "react-number-format"
 import _ from "lodash"
 
 import "./SimuladorPoupanca.css"
+import { simuladorPoupancaStyles } from "./SimuladorPoupanca.styles"
 
 const selic = 3
 const yearYield = selic * 0.7
@@ -10,25 +12,24 @@ const monthlyYield = yearYield / 12
 
 const Yields: React.FC<any> = props => {
   const { yieldValue } = props
+  const classes = simuladorPoupancaStyles();
   const yieldBlocks = []
   if (yieldValue && yieldValue !== "" && yieldValue !== "0.00") {
     let currentValue = yieldValue
     for (let x = 1; x <= 12; x++) {
       currentValue = currentValue + currentValue * (monthlyYield / 100)
       const block = (
-        <div className={"monthYield"} key={x}>
-          <span className={"month"}>{x}º mês:</span>
-          <span className={"monthResult"}>
-            <NumberFormat
-              value={currentValue}
-              prefix={"R$ "}
-              decimalScale={2}
-              decimalSeparator={","}
-              displayType={"text"}
-              thousandSeparator={"."}
-            />
-          </span>
-        </div>
+        <Grid container className={classes.monthYield} key={x}>
+          <Typography className={classes.month} component={"span"}>{x}º mês:</Typography>
+          <Typography className={classes.monthResult} component={"span"}><NumberFormat
+            value={currentValue}
+            prefix={"R$ "}
+            decimalScale={2}
+            decimalSeparator={","}
+            displayType={"text"}
+            thousandSeparator={"."}
+          /></Typography>
+        </Grid>
       )
       yieldBlocks.push(block)
     }
@@ -39,28 +40,29 @@ const Yields: React.FC<any> = props => {
   return (
     <>
       {yieldBlocks.length > 0 && (
-        <>
-          <h3>Rendimentos aproximados</h3>
-          <div className="yieldBlocks">
-            <div className="firstSemesterBlock">{semestersBlocks[0]}</div>
-            <div className="secondSemesterBlock">{semestersBlocks[1]}</div>
-          </div>
-        </>
+        <Grid container direction={"column"} justify={"center"} alignItems={"center"}>
+          <Typography variant={"h3"} className={classes.yieldSubtitle}>Rendimentos aproximados</Typography>
+          <Grid container justify={"center"} className={classes.yieldBlocks}>
+            <Box className={classes.firstSemesterBlock}>{semestersBlocks[0]}</Box>
+            <Box className={classes.secondSemesterBlock}>{semestersBlocks[1]}</Box>
+          </Grid>
+        </Grid>
       )}
     </>
   )
 }
 
 export const SimuladorPoupanca: React.FC<any> = () => {
+  const classes = simuladorPoupancaStyles();
   const [inputYield, setInputYield] = useState<any>(0)
   return (
-    <div className={"mainStuffWrapper"}>
-      <div className={"yieldWrapper"}>
-        <span className={"yield"}>{yearYield.toFixed(2)}%</span>
-        <span className={"yieldComp"}>{` ao ano`}</span>
-      </div>
-      <div className={"inputWrapper"}>
-        <div className={"input"}>
+    <Grid container className={classes.wrapper} direction={"column"} alignItems={"center"} justify={"center"}>
+      <Grid item className={classes.yieldWrapper} alignItems={"center"}>
+        <Typography component={'span'} className={classes.yield}>{yearYield.toFixed(2)}%</Typography>
+        <Typography component={'span'} className={classes.yieldComp}>ao ano</Typography>
+      </Grid>
+      <Grid container className={classes.inputWrapper} alignItems={"center"} justify={"center"}>
+        <Box className={classes.inputBox}>
           <label htmlFor="">
             Simular Investimento:{" "}
             <NumberFormat
@@ -73,13 +75,14 @@ export const SimuladorPoupanca: React.FC<any> = () => {
                 const { floatValue } = values
                 setInputYield(floatValue)
               }}
+              className={classes.investmentInput}
             />
           </label>
-        </div>
-      </div>
-      <div className={"monthly"}>
+        </Box>
+      </Grid>
+      <Grid container direction={"column"} alignItems={"center"} className={classes.monthly}>
         <Yields yieldValue={inputYield} />
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   )
 }

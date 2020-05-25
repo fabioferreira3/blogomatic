@@ -5,10 +5,13 @@ export const normalizePost: any = (
   source: any,
   locale: string
 ) => {
-  moment.locale(locale)
+
   if (source !== "wp") {
     return null
   }
+
+  const dateFormat = locale === 'en' ? "MMMM DD, YYYY" : "DD [de] MMMM, YYYY"
+  moment.locale(locale)
 
   return {
     id: rawPostData.id,
@@ -31,11 +34,11 @@ export const normalizePost: any = (
     slug: rawPostData.slug,
     createdAt: {
       raw: moment(rawPostData.date).format("YYYY-MM-DD HH:mm:ss"),
-      formated: moment(rawPostData.date).format("MMMM DD, YYYY"),
+      formated: moment(rawPostData.date).format(dateFormat),
     },
     updatedAt: {
       raw: moment(rawPostData.modified).format("YYYY-MM-DD HH:mm:ss"),
-      formated: moment(rawPostData.modified).format("MMMM DD, YYYY"),
+      formated: moment(rawPostData.modified).format(dateFormat),
     },
     tags: rawPostData.tags,
     yoastHead: rawPostData.yoast_head,
