@@ -49,6 +49,7 @@ export const simuladorPoupancaStyles = () => {
       marginLeft: 5,
       maxWidth: 250,
       border: "1px solid #d1d1d1",
+      padding: 7,
       [theme.breakpoints.down('sm')]: {
         width: "100%",
         maxWidth: "100%",

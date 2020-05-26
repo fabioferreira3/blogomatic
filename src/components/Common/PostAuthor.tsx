@@ -3,6 +3,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility"
 import { Avatar, Grid, Typography } from "@material-ui/core"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { makeStyles } from "@material-ui/core/styles"
+
 import { RootContext } from "../App"
 
 export const PostAuthor: React.FC<any> = props => {

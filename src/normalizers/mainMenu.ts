@@ -8,7 +8,7 @@ export const normalizeMainMenu: any = (
   }
 
   const defineUrl = (item: any, siteUrl: string) => {
-    if (item.object === "category") {
+    if (item.object === "category" || item.object === "post") {
       return item.url.replace(siteUrl, "")
     }
     return item.url

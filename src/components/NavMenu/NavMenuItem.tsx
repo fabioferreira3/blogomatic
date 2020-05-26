@@ -37,6 +37,7 @@ export const NavMenuItem: React.FC<INavMenuItemProps> = props => {
         variant="contained"
         color="primary"
         onClick={() => {
+          console.log(props);
           if (props.targetUrl && props.isInternal) {
             navigate(`/${props.targetUrl}`)
           }
