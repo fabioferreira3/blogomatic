@@ -13,7 +13,7 @@ export const SmallPost: React.FC<any> = props => {
   const { featuredImage, createdAt, slug, title } = props
 
   useEffect(() => {
-    console.log(`VERTICAL SMALL POST:: ${title} rendered`)
+  //  console.log(`VERTICAL SMALL POST:: ${title} rendered`)
   })
 
   return (

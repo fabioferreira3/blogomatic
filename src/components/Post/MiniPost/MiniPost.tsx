@@ -12,7 +12,7 @@ export const MiniPost: React.FC<any> = props => {
   const { featuredImage, createdAt, slug, title } = props
 
   useEffect(() => {
-    console.log(`MINI POST:: ${title} rendered`)
+  //  console.log(`MINI POST:: ${title} rendered`)
   })
 
   return (

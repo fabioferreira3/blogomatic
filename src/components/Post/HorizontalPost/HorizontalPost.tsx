@@ -16,7 +16,7 @@ export const HorizontalPost: React.FC<any> = props => {
   const classes = horizontalPostStyles()
 
   useEffect(() => {
-    console.log(`HORIZONTAL POST:: ${title} rendered`)
+   // console.log(`HORIZONTAL POST:: ${title} rendered`)
   })
 
   return (

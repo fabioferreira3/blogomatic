@@ -12,7 +12,7 @@ export const SquarePost: React.FC<any> = props => {
   const classes = squarePostStyles()
 
   useEffect(() => {
-    console.log(`SQUARE POST:: ${title} rendered`)
+  //  console.log(`SQUARE POST:: ${title} rendered`)
   })
 
   return (

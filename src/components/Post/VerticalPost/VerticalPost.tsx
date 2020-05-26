@@ -16,7 +16,7 @@ export const VerticalPost: React.FC<any> = props => {
   const classes = verticalPostStyles()
 
   useEffect(() => {
-    console.log(`VERTICAL LARGE POST:: ${title} rendered`)
+  //  console.log(`VERTICAL LARGE POST:: ${title} rendered`)
   })
 
   return (
