@@ -10,7 +10,7 @@ import { PostTimestamp } from "../../Common/PostTimestamp"
 export const SmallPost: React.FC<any> = props => {
   const classes = smallPostStyles()
 
-  const { featuredImage, updatedAt, slug, title } = props
+  const { featuredImage, createdAt, slug, title } = props
 
   useEffect(() => {
     console.log(`VERTICAL SMALL POST:: ${title} rendered`)
@@ -31,7 +31,7 @@ export const SmallPost: React.FC<any> = props => {
         alignItems={"center"}
         className={classes.timestampWrapper}
       >
-        <PostTimestamp date={updatedAt.formated} displayIcon={true} />
+        <PostTimestamp date={createdAt.formated} displayIcon={true} />
       </Grid>
       <Link
         to={`/${slug}`}

@@ -30,29 +30,26 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
       h1: {
         fontSize: 40,
         fontWeight: 700,
-        letterSpacing: 1,
       },
       h2: {
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: 700,
-        letterSpacing: 1,
       },
       h3: {
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 700,
-        letterSpacing: 1,
       },
       h4: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 700,
-        letterSpacing: 1,
+        letterSpacing: 0
       },
       body1: {
-        fontSize: 18,
+        fontSize: 20,
         textAlign: "justify"
       },
       body2: {
-        fontSize: 14,
+        fontSize: 16,
         textAlign: "justify"
       },
       button: {
@@ -65,16 +62,24 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
       MuiCssBaseline: {
         '@global': {
           h1: {
-            textAlign: "left"
+            textAlign: "left",
+            fontFamily: "Hind !important",
+            fontSize: "40px !important",
+            fontWeight: "bold !important",
           },
           h2: {
-            textAlign: "left"
+            textAlign: "left",
+            fontFamily: "Hind !important",
+            fontSize: "35px !important",
+            fontWeight: "bold !important",
           },
           h3: {
-            textAlign: "left"
+            textAlign: "left",
+            fontFamily: "Hind !important",
           },
           h4: {
-            textAlign: "left"
+            textAlign: "left",
+            fontFamily: "Hind !important",
           },
         },
       },

@@ -9,7 +9,7 @@ import { PostTimestamp } from "../../Common/PostTimestamp"
 
 export const MiniPost: React.FC<any> = props => {
   const classes = miniPostStyles()
-  const { featuredImage, updatedAt, slug, title } = props
+  const { featuredImage, createdAt, slug, title } = props
 
   useEffect(() => {
     console.log(`MINI POST:: ${title} rendered`)
@@ -34,9 +34,9 @@ export const MiniPost: React.FC<any> = props => {
         alignItems={"flex-start"}
         style={{ paddingLeft: 13 }}
       >
-        <PostTimestamp date={updatedAt.formated} />
+        <PostTimestamp date={createdAt.formated} />
         <Link to={`/${slug}`} className={classes.link}>
-          <Typography variant={"h4"} color={"textPrimary"}>
+          <Typography variant={"h4"} className={classes.title} color={"textPrimary"}>
             {parse(title)}
           </Typography>
         </Link>

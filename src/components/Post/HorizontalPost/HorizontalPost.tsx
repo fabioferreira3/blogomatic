@@ -11,7 +11,7 @@ import { PostAuthor } from "../../Common/PostAuthor"
 import { RootContext } from "../../App"
 
 export const HorizontalPost: React.FC<any> = props => {
-  const { author, featuredImage, updatedAt, slug, summary, title } = props
+  const { author, featuredImage, createdAt, slug, summary, title } = props
   const { textContent } = useContext(RootContext)
   const classes = horizontalPostStyles()
 
@@ -33,7 +33,7 @@ export const HorizontalPost: React.FC<any> = props => {
       </Grid>
       <Grid container xs={12} sm={6} item className={classes.contentWrapper}>
         <Grid container alignItems={"center"} className={classes.timestampWrapper}>
-          <PostTimestamp date={updatedAt.formated} displayIcon={true} />
+          <PostTimestamp date={createdAt.formated} displayIcon={true} />
         </Grid>
         <Grid container direction={"column"}>
           <Link to={`/${slug}`} className={classes.link}>

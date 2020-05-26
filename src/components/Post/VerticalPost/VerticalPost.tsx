@@ -11,7 +11,7 @@ import { PostAuthor } from "../../Common/PostAuthor"
 import { RootContext } from "../../App"
 
 export const VerticalPost: React.FC<any> = props => {
-  const { author, featuredImage, updatedAt, title, summary, slug } = props
+  const { author, featuredImage, createdAt, title, summary, slug } = props
   const { textContent } = useContext(RootContext)
   const classes = verticalPostStyles()
 
@@ -30,7 +30,7 @@ export const VerticalPost: React.FC<any> = props => {
         </Box>
       )}
       <Grid container alignItems={"center"} style={{ marginTop: 10 }}>
-        <PostTimestamp date={updatedAt.formated} displayIcon={true} />
+        <PostTimestamp date={createdAt.formated} displayIcon={true} />
       </Grid>
 
       <Link to={`/${slug}`} className={classes.link}>

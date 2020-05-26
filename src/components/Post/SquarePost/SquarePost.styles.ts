@@ -29,6 +29,7 @@ export const squarePostStyles = () => {
       zIndex: 1,
       marginRight: 20,
       color: "white",
+      fontSize: 30
     },
   }))()
 }
