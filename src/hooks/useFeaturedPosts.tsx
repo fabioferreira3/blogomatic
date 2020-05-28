@@ -4,13 +4,13 @@ import { useContext } from "react"
 import { RootContext } from "../components/App"
 
 export const useFeaturedPosts = () => {
-  const { locale } = useContext(RootContext);
+  const { locale } = useContext(RootContext)
   const rawFeaturedPostsData = useStaticQuery(graphql`
     query {
       allWordpressPost(
         filter: { sticky: { eq: true }, status: { eq: "publish" } }
         limit: 3
-        sort: { fields: modified, order: DESC }
+        sort: { fields: date, order: DESC }
       ) {
         nodes {
           ...wpPost
