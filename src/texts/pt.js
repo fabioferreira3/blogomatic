@@ -1,5 +1,6 @@
 module.exports = {
-  BY: "por",
+  BY: "",
+  CATEGORY: "categoria",
   COPYRIGHT: "Todos os direitos reservados",
   CATEGORIES: "Categorias",
   FEATURED: "Em Destaque",

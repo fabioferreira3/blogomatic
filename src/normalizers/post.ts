@@ -1,5 +1,9 @@
 import moment from "moment"
 
+const forceHttpsUrl = (url: string) => {
+  return url.replace("http://", "https://")
+}
+
 export const normalizePost: any = (
   rawPostData: any,
   source: any,
@@ -31,8 +35,8 @@ export const normalizePost: any = (
       imageSource: rawPostData.featured_media.localFile.childImageSharp.fluid,
     },
     author: {
-      name: rawPostData.author.name,
-      imageSource: rawPostData.author.avatar_urls.wordpress_96,
+      name: process.env.GATSBY_AUTHOR,
+      imageSource: forceHttpsUrl(rawPostData.author.avatar_urls.wordpress_96),
     },
     slug: rawPostData.slug,
     createdAt: {

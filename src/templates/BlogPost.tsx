@@ -16,6 +16,7 @@ import { blogPostStyles } from "./BlogPost.styles"
 import "@wordpress/block-library/build-style/style.css"
 import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
 import { SimuladorPoupanca } from "../components/Specific/SimuladorPoupanca"
+import { AuthorBox } from "../components/Author/AuthorBox"
 
 export const CategoryButton = withStyles(theme => ({
   root: {
@@ -96,6 +97,7 @@ const BlogPostTemplate: React.FC<any> = props => {
               color={"textPrimary"}
             >
               <Box>{parse(postData.content)}</Box>
+              <AuthorBox/>
             </Typography>
           </Grid>
         </Grid>

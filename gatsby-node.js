@@ -2,6 +2,8 @@ const path = require(`path`)
 const textContent_EN = require("./src/texts/en")
 const textContent_PT = require("./src/texts/pt")
 
+const textContent = process.env.GATSBY_LANGUAGE === 'en' ? textContent_EN : textContent_PT
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const { createPage } = actions
@@ -26,7 +28,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
 
     const BlogPosts = postResults.data.allWordpressPost.nodes
-    const textContent = process.env.GATSBY_LANGUAGE === 'en' ? textContent_EN : textContent_PT
     const locale = process.env.GATSBY_LANGUAGE === 'en' ? 'en' : 'pt_BR'
 
     BlogPosts.forEach(post => {
@@ -65,7 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     Categories.forEach(category => {
       createPage({
-        path: `/category/${category.slug}`,
+        path: `/${textContent.CATEGORY}/${category.slug}`,
         component: CategoryTemplate,
         context: {
           id: category.wordpress_id,
