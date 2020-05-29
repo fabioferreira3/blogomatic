@@ -9,7 +9,7 @@ export const useFeaturedPosts = () => {
     query {
       allWordpressPost(
         filter: { sticky: { eq: true }, status: { eq: "publish" } }
-        limit: 3
+        limit: 6
         sort: { fields: date, order: DESC }
       ) {
         nodes {

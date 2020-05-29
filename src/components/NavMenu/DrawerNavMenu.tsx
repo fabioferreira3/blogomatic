@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { navigate } from "gatsby"
 import Drawer from "@material-ui/core/Drawer"
 import Button from "@material-ui/core/Button"
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from "@material-ui/icons/Menu"
 import List from "@material-ui/core/List"
 import Divider from "@material-ui/core/Divider"
 import ListItem from "@material-ui/core/ListItem"
@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
   itemText: {
     fontFamily: theme.typography.fontFamily,
     textTransform: "uppercase",
+    textAlign: "right",
   },
   headerWrapper: {
     background: theme.palette.primary.main,
@@ -79,7 +80,9 @@ export const DrawerNavMenu: React.FC<any> = ({ items }) => {
   return (
     <div>
       <React.Fragment>
-        <Button onClick={toggleDrawer(true)}><MenuIcon/></Button>
+        <Button onClick={toggleDrawer(true)}>
+          <MenuIcon />
+        </Button>
         <Drawer
           anchor={"right"}
           open={state["right"]}

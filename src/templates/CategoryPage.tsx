@@ -61,6 +61,7 @@ export const query = graphql`
     }
     allWordpressPost(
       filter: { categories: { elemMatch: { wordpress_id: { eq: $id } } } }
+      sort: { fields: date, order: DESC }
     ) {
       nodes {
         ...wpPost

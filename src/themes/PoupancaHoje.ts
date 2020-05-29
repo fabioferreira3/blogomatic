@@ -40,7 +40,7 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
         fontWeight: 700,
       },
       h4: {
-        fontSize: 16,
+        fontSize: 25,
         fontWeight: 700,
         letterSpacing: 0,
       },
@@ -79,7 +79,10 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
           },
           h4: {
             textAlign: "left",
+            fontSize: "25px !important",
             fontFamily: "Hind !important",
+            letterSpacing: "0px !important",
+            textTransform: "none !important",
           },
         },
       },
