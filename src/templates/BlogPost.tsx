@@ -16,6 +16,7 @@ import { blogPostStyles } from "./BlogPost.styles"
 import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
 import { SimuladorPoupanca } from "../components/Specific/SimuladorPoupanca"
 import { AuthorBox } from "../components/Author/AuthorBox"
+import { ShareActions } from "../components/Common/ShareActions"
 
 export const CategoryButton = withStyles(theme => ({
   root: {
@@ -90,8 +91,8 @@ const BlogPostTemplate: React.FC<any> = props => {
               justify={"space-between"}
               className={classes.contentWrapper}
             >
-              <Grid item xs={12} md={3}>
-                <Typography variant={"h3"} color={"textPrimary"}></Typography>
+              <Grid item xs={12} md={3} style={{ position: "relative" }}>
+                <ShareActions />
               </Grid>
               <Grid item xs={12} md={9}>
                 <Typography
