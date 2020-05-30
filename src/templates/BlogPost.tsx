@@ -40,7 +40,6 @@ const BlogPostTemplate: React.FC<any> = props => {
   const { textContent, locale } = pageContext
   const rawPostData = data.wordpressPost
   const postData: any = normalizePost(rawPostData, "wp", locale)
-  console.log(postData, "postData")
   const classes = blogPostStyles()
   const featuredPosts = useFeaturedPosts([postData.id])
 
