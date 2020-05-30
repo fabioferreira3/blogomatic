@@ -92,7 +92,9 @@ const BlogPostTemplate: React.FC<any> = props => {
               className={classes.contentWrapper}
             >
               <Grid item xs={12} md={3} style={{ position: "relative" }}>
-                <ShareActions />
+                <Box className={classes.socialWrapper}>
+                  <ShareActions size={"medium"} />
+                </Box>
               </Grid>
               <Grid item xs={12} md={9}>
                 <Typography

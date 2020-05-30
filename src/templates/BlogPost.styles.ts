@@ -15,7 +15,13 @@ export const blogPostStyles = () => {
       marginBottom: 15,
     },
     socialWrapper: {
-      padding: 20,
+      position: "sticky",
+      left: 0,
+      top: 300,
+      marginTop: "3.5em",
+      [theme.breakpoints.down("sm")]: {
+        marginTop: 0,
+      },
     },
     contentWrapper: {
       marginTop: 30,

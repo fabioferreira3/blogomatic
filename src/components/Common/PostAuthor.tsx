@@ -38,7 +38,9 @@ export const PostAuthor: React.FC<any> = props => {
           classes={avatarClasses}
           className={classes.avatar}
         />
-        <Typography className={classes.authorName}>{textContent.BY} {authorName}</Typography>
+        <Typography className={classes.authorName}>
+          {textContent.BY} {authorName}
+        </Typography>
       </Grid>
       <Grid container item alignItems={"center"} justify={"flex-end"}>
         <VisibilityIcon className={classes.visibilityIcon} />
