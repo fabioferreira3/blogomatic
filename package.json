@@ -98,11 +98,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "build-serve": "gatsby build && gatsby serve -p 5000",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "clean-poupanca": "rm -rf ../poupancahoje/public/*",
-    "publish-poupanca": "cp -R public/* ../poupancahoje/public/.",
-    "commit-poupanca": "cd ../poupancahoje && git add public && git commit -m $MSG && git push origin master",
-    "deploy-poupanca": "npm-run-all clean-poupanca build publish-poupanca commit-poupanca"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "engines": {
     "npm": " 6.13.6",
