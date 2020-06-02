@@ -12,10 +12,13 @@ import { SquarePostsHorizontal } from "../components/PostWrappers/SquarePostsHor
 import { SmallPostsVertical } from "../components/PostWrappers/SmallPostsVertical"
 import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
 import { VerticalPosts } from "../components/PostWrappers/VerticalPosts"
+import {useLatestPosts} from "../hooks/useLatestPosts";
 
 const Index: React.FC<any> = () => {
+  const mainPosts = useLatestPosts(null, 6)
   const featuredPosts = useFeaturedPosts()
   const horizontalPosts = useFeaturedPosts(null, 3)
+  const smallPostsVertical = useFeaturedPosts(null, 3)
   const smallPostsHorizontal = useFeaturedPosts(null, 4)
 
   return (
@@ -27,11 +30,11 @@ const Index: React.FC<any> = () => {
         />
         <Grid container justify={"center"}>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
-            <SmallPostsVertical posts={featuredPosts} />
+            <SmallPostsVertical posts={smallPostsVertical} />
           </Grid>
           <Grid item style={{ padding: 20 }} xs={12} md={6}>
             <Grid container justify={"center"} direction={"column"}>
-              <VerticalPosts posts={featuredPosts} />
+              <VerticalPosts posts={mainPosts} />
             </Grid>
           </Grid>
           <Grid item style={{ padding: 20 }} xs={12} md={3}>
