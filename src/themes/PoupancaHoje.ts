@@ -48,7 +48,7 @@ const PoupancaHojeTheme = (preference: PreferenceT) => {
         fontSize: 20,
       },
       body2: {
-        fontSize: 16,
+        fontSize: 18,
       },
       button: {
         letterSpacing: 1,

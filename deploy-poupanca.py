@@ -7,6 +7,6 @@ args = sys.argv[1:]
 
 if args:
     commitmsg = args[0]
-    deploy(commitmsg, "poupancahoje")
+    deploy("poupancahoje", commitmsg)
 else:
     print("Please provide a commit message")

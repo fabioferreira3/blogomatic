@@ -17,10 +17,12 @@ import { Logo } from "../Logo/Logo"
 import { footerStyles } from "./Footer.styles"
 import { useSiteMetadata } from "../../hooks/useSiteMetadata"
 import { RootContext } from "../App"
+import {useLatestPosts} from "../../hooks/useLatestPosts";
 
 export const Footer: React.FC = () => {
   const classes = footerStyles()
-  const featuredPosts = useFeaturedPosts()
+  const featuredPosts = useFeaturedPosts(null, 3)
+  const latestPosts = useLatestPosts(null, 3)
   const categories = useCategories()
   const siteMetadata = useSiteMetadata()
   const { textContent } = useContext(RootContext)
@@ -79,8 +81,8 @@ export const Footer: React.FC = () => {
         >
           {textContent.POPULAR}
         </Typography>
-        {featuredPosts &&
-          featuredPosts.map((post: any) => (
+        {latestPosts &&
+        latestPosts.map((post: any) => (
             <Grid item key={post.id} className={classes.postWrapper}>
               <MiniPost {...post} />
             </Grid>
@@ -100,7 +102,7 @@ export const Footer: React.FC = () => {
               <ListItem
                 key={category.id}
                 className={classes.categoryItem}
-                onClick={() => navigate(`/category/${category.slug}`)}
+                onClick={() => navigate(`/categoria/${category.slug}`)}
               >
                 <CategoryLink content={category.name} />
               </ListItem>

@@ -4,8 +4,9 @@ import _ from "lodash"
 
 import { normalizePosts } from "../normalizers/post"
 import { RootContext } from "../components/App"
+import {processPostData} from "./posthooks.helper";
 
-export const useFeaturedPosts = (ignore: any = []) => {
+export const useFeaturedPosts = (ignore: any = [], limit: any = null) => {
   const { locale } = useContext(RootContext)
   const rawFeaturedPostsData = useStaticQuery(graphql`
     query {
@@ -25,10 +26,11 @@ export const useFeaturedPosts = (ignore: any = []) => {
     "wp",
     locale
   )
-  if (ignore && featuredPostsData) {
-    return _.filter(featuredPostsData, (featuredPost: any) => {
-      return !_.includes(ignore, featuredPost.id)
-    })
-  }
-  return featuredPostsData
+  return processPostData(featuredPostsData, ignore, limit)
+  // if (ignore && featuredPostsData) {
+  //   return _.filter(featuredPostsData, (featuredPost: any) => {
+  //     return !_.includes(ignore, featuredPost.id)
+  //   })
+  // }
+  // return featuredPostsData
 }

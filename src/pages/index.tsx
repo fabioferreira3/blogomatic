@@ -15,6 +15,8 @@ import { VerticalPosts } from "../components/PostWrappers/VerticalPosts"
 
 const Index: React.FC<any> = () => {
   const featuredPosts = useFeaturedPosts()
+  const horizontalPosts = useFeaturedPosts(null, 3)
+  const smallPostsHorizontal = useFeaturedPosts(null, 4)
 
   return (
     <App>
@@ -38,7 +40,7 @@ const Index: React.FC<any> = () => {
         </Grid>
         <Grid container justify={"center"}>
           <Grid container item xs={12} sm={9}>
-            <HorizontalPosts posts={featuredPosts} />
+            <HorizontalPosts posts={horizontalPosts} />
           </Grid>
           <Grid container item direction={"column"} xs={12} sm={3}>
             <SquarePostsVertical posts={featuredPosts} hasOverlay={true} />
@@ -48,7 +50,7 @@ const Index: React.FC<any> = () => {
           <SquarePostsHorizontal posts={featuredPosts} />
         </Grid>
         <Grid container style={{ paddingLeft: 20 }}>
-          <SmallPostsHorizontal posts={featuredPosts} />
+          <SmallPostsHorizontal posts={smallPostsHorizontal} />
         </Grid>
       </MainLayout>
     </App>
