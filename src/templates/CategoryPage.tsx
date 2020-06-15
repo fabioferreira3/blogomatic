@@ -1,13 +1,14 @@
 import React, { useContext } from "react"
-import { Grid, Typography } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles"
 import { graphql } from "gatsby"
 
 import { normalizePosts } from "../normalizers/post"
-import { MainLayout } from "../layouts/MainLayout"
-import { App, RootContext } from "../components/App"
-import { HorizontalPosts } from "../components/PostWrappers/HorizontalPosts"
-import { categoryPageStyles } from "./CategoryPage.styles"
+import MainLayout from "../layouts/MainLayout"
+import App, { RootContext } from "../components/App"
+import HorizontalPosts from "../components/PostWrappers/HorizontalPosts"
+import categoryPageStyles from "./CategoryPage.styles"
 import Seo from "../components/Seo"
 
 const CategoryPageTemplate: React.FC<any> = ({ data }) => {
