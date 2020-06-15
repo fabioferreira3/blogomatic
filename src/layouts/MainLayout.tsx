@@ -1,10 +1,10 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
-import { NavBar } from "../components/NavBar/NavBar"
-import { Footer } from "../components/Footer/Footer"
-import { NavigateToTop } from "../components/Common/NavigateToTop"
+import Grid from "@material-ui/core/Grid"
+import NavBar from "../components/NavBar/NavBar"
+import Footer from "../components/Footer/Footer"
+import NavigateToTop from "../components/Common/NavigateToTop"
 
-export const MainLayout: React.FC = props => {
+const MainLayout: React.FC = props => {
   return (
     <>
       <NavigateToTop />
@@ -16,3 +16,5 @@ export const MainLayout: React.FC = props => {
     </>
   )
 }
+
+export default MainLayout

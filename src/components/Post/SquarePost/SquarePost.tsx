@@ -1,19 +1,17 @@
 import React, { useEffect } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
 import parse from 'html-react-parser'
 
-import { squarePostStyles } from "./SquarePost.styles"
-import { BlackOverlay } from "../../Common/BlackOverlay"
+import squarePostStyles from "./SquarePost.styles"
+import BlackOverlay from "../../Common/BlackOverlay"
 
-export const SquarePost: React.FC<any> = props => {
+const SquarePost: React.FC<any> = props => {
   const { featuredImage, hasOverlay, slug, title } = props
   const classes = squarePostStyles()
-
-  useEffect(() => {
-  //  console.log(`SQUARE POST:: ${title} rendered`)
-  })
 
   return (
     <Grid item className={classes.wrapper}>
@@ -34,3 +32,5 @@ export const SquarePost: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default SquarePost

@@ -1,9 +1,10 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
 
-import { SmallPost } from "../Post/SmallPost/SmallPost"
+import Grid from "@material-ui/core/Grid"
 
-export const SmallPostsVertical: React.FC<any> = ({ posts }) => {
+import SmallPost from "../Post/SmallPost/SmallPost"
+
+const SmallPostsVertical: React.FC<any> = ({ posts }) => {
   return (
     <Grid container justify={"center"} direction={"column"}>
       {posts &&
@@ -13,3 +14,5 @@ export const SmallPostsVertical: React.FC<any> = ({ posts }) => {
     </Grid>
   )
 }
+
+export default SmallPostsVertical

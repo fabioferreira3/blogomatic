@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const simuladorPoupancaStyles = () => {
+const simuladorPoupancaStyles = () => {
   return makeStyles(theme => ({
     wrapper: {
       padding: 10,
@@ -98,3 +98,5 @@ export const simuladorPoupancaStyles = () => {
       padding: "0 10px 10px 10px"
     }
   }))()}
+
+  export default simuladorPoupancaStyles

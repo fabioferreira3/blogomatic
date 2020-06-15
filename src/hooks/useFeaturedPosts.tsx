@@ -1,12 +1,11 @@
 import { useContext } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import _ from "lodash"
 
 import { normalizePosts } from "../normalizers/post"
 import { RootContext } from "../components/App"
-import {processPostData} from "./posthooks.helper";
+import processPostData from "./posthooks.helper";
 
-export const useFeaturedPosts = (ignore: any = [], limit: any = null) => {
+const useFeaturedPosts = (ignore: any = [], limit: any = null) => {
   const { locale } = useContext(RootContext)
   const rawFeaturedPostsData = useStaticQuery(graphql`
     query {
@@ -34,3 +33,5 @@ export const useFeaturedPosts = (ignore: any = [], limit: any = null) => {
   // }
   // return featuredPostsData
 }
+
+export default useFeaturedPosts

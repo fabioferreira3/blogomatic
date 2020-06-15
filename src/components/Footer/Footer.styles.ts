@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const footerStyles = () => {
+const footerStyles = () => {
   return makeStyles(theme => ({
     wrapper: {
       padding: 20,
@@ -35,3 +35,5 @@ export const footerStyles = () => {
     },
   }))()
 }
+
+export default footerStyles

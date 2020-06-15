@@ -1,12 +1,13 @@
 import React from "react"
-import { AppBar, Grid } from "@material-ui/core"
+import AppBar from "@material-ui/core/AppBar"
+import Grid from "@material-ui/core/Grid"
 import { navigate } from "gatsby"
 
-import { NavMenu } from "../NavMenu/NavMenu"
-import { navBarStyles } from "./NavBar.styles"
-import { Logo } from "../Logo/Logo"
+import NavMenu from "../NavMenu/NavMenu"
+import Logo from "../Logo/Logo"
+import navBarStyles from "./NavBar.styles"
 
-export const NavBar: React.FC = () => {
+const NavBar: React.FC = () => {
   const classes = navBarStyles()
   return (
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
@@ -27,3 +28,5 @@ export const NavBar: React.FC = () => {
     </AppBar>
   )
 }
+
+export default NavBar

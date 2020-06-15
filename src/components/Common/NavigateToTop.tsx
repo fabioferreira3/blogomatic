@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { withStyles } from "@material-ui/core/styles"
-import { Button } from "@material-ui/core"
+import Button from "@material-ui/core/Button"
 import NavigationIcon from "@material-ui/icons/Navigation"
 
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
@@ -28,7 +28,7 @@ export const StyledButton = withStyles(theme => ({
   },
 }))(Button)
 
-export const NavigateToTop: () => false | any = () => {
+const NavigateToTop: () => false | any = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -49,3 +49,5 @@ export const NavigateToTop: () => false | any = () => {
     )
   )
 }
+
+export default NavigateToTop

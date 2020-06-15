@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { ListItemText } from "@material-ui/core"
+import ListItemText from "@material-ui/core/ListItemText"
 import Fade from "@material-ui/core/Fade"
 import { navigate } from "gatsby"
 
@@ -9,7 +9,7 @@ import {
   StyledListItemIcon,
   StyledMenuItem,
 } from "./StyledElements/StyledElements"
-import { navMenuItemStyles } from "./NavMenuItem.styles"
+import navMenuItemStyles from "./NavMenuItem.styles"
 import { INavMenuItemProps, NavMenuItemSubItemType } from "./NavMenuItem.types"
 
 const NavMenuSubItem: React.FC<NavMenuItemSubItemType> = props => {

@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles"
 
 import { RootContext } from "../App"
 
-export const PostAuthor: React.FC<any> = props => {
+const PostAuthor: React.FC<any> = props => {
   const { authorName, imageSource } = props
   const { textContent } = useContext(RootContext)
   const likeCount = Math.floor(Math.random() * 600) + 300
@@ -55,3 +55,5 @@ export const PostAuthor: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default PostAuthor

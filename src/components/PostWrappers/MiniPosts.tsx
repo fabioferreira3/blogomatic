@@ -1,8 +1,9 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
-import { MiniPost } from "../Post/MiniPost/MiniPost"
 
-export const MiniPosts: React.FC<any> = props => {
+import Grid from "@material-ui/core/Grid"
+import MiniPost from "../Post/MiniPost/MiniPost"
+
+const MiniPosts: React.FC<any> = props => {
   const { posts } = props
   return (
     <Grid container justify={"center"} direction={"column"}>
@@ -15,3 +16,5 @@ export const MiniPosts: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default MiniPosts

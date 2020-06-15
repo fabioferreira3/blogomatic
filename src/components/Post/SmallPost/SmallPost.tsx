@@ -1,20 +1,18 @@
 import React, { useEffect } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
 import parse from "html-react-parser"
 
-import { smallPostStyles } from "./SmallPost.styles"
-import { PostTimestamp } from "../../Common/PostTimestamp"
+import smallPostStyles from "./SmallPost.styles"
+import PostTimestamp from "../../Common/PostTimestamp"
 
-export const SmallPost: React.FC<any> = props => {
+const SmallPost: React.FC<any> = props => {
   const classes = smallPostStyles()
 
   const { featuredImage, createdAt, slug, title } = props
-
-  useEffect(() => {
-  //  console.log(`VERTICAL SMALL POST:: ${title} rendered`)
-  })
 
   return (
     <Grid container direction={"column"} style={{ marginBottom: 25 }}>
@@ -48,3 +46,5 @@ export const SmallPost: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default SmallPost

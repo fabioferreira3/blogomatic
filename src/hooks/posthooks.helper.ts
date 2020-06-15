@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-export const processPostData = (postData: any, ignore: any, limit: any) => {
+const processPostData = (postData: any, ignore: any, limit: any) => {
     let processedPostData = _.cloneDeep(postData);
     if (ignore && processedPostData) {
         processedPostData = _.filter(processedPostData, (latestPost: any) => {
@@ -13,3 +13,5 @@ export const processPostData = (postData: any, ignore: any, limit: any) => {
 
     return processedPostData;
 }
+
+export default processPostData

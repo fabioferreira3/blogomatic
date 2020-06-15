@@ -1,14 +1,15 @@
 import React, { createContext, useMemo, useState } from "react"
-import { Grid, Hidden } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
+import Hidden from "@material-ui/core/Hidden"
 
 import { NavMenuItem } from "./NavMenuItem"
-import { navBarStyles } from "../NavBar/NavBar.styles"
-import { useMainMenu } from "../../hooks/useMainMenu"
-import { DrawerNavMenu } from "./DrawerNavMenu"
+import navBarStyles from "../NavBar/NavBar.styles"
+import useMainMenu from "../../hooks/useMainMenu"
+import DrawerNavMenu from "./DrawerNavMenu"
 
 export const NavMenuContext = createContext({})
 
-export const NavMenu: React.FC<any> = () => {
+const NavMenu: React.FC<any> = () => {
   const classes = navBarStyles()
   const [activeMenu, setActiveMenu] = useState(null)
   const mainMenuData = useMainMenu()
@@ -37,3 +38,5 @@ export const NavMenu: React.FC<any> = () => {
     </NavMenuContext.Provider>
   )
 }
+
+export default NavMenu

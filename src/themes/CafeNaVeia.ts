@@ -27,39 +27,28 @@ const CafeNaVeiaTheme = (preference: PreferenceT) => {
     },
     typography: {
       fontFamily: "Acme",
-      fontWeightLight: 300,
-      fontWeightMedium: 400,
-      fontWeightBold: 700,
       h1: {
-        letterSpacing: 1,
-        fontSize: 35,
+        fontSize: 40,
         fontWeight: 700,
       },
       h2: {
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: 700,
-        letterSpacing: 1,
-        textTransform: "uppercase",
       },
       h3: {
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 700,
-        letterSpacing: 1,
-        textTransform: "uppercase",
       },
       h4: {
-        fontSize: 14,
+        fontSize: 25,
         fontWeight: 700,
-        letterSpacing: 1,
-        textTransform: "uppercase",
+        letterSpacing: 0,
       },
       body1: {
-        fontSize: 18,
-        fontFamily: "Pontano Sans",
+        fontSize: 20,
       },
       body2: {
-        fontSize: 14,
-        fontFamily: "Pontano Sans",
+        fontSize: 18,
       },
       button: {
         letterSpacing: 1,
@@ -70,8 +59,28 @@ const CafeNaVeiaTheme = (preference: PreferenceT) => {
     overrides: {
       MuiCssBaseline: {
         "@global": {
-          "@font-face": {
-            fontDisplay: "swap",
+          h1: {
+            textAlign: "left",
+            fontFamily: "Hind !important",
+            fontSize: "40px !important",
+            fontWeight: "bold !important",
+          },
+          h2: {
+            textAlign: "left",
+            fontFamily: "Hind !important",
+            fontSize: "35px !important",
+            fontWeight: "bold !important",
+          },
+          h3: {
+            textAlign: "left",
+            fontFamily: "Hind !important",
+          },
+          h4: {
+            textAlign: "left",
+            fontSize: "25px !important",
+            fontFamily: "Hind !important",
+            letterSpacing: "0px !important",
+            textTransform: "none !important",
           },
         },
       },

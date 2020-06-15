@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const miniPostStyles = () => {
+const miniPostStyles = () => {
   return makeStyles(theme => ({
     mainImageWrapper: {
       cursor: "pointer",
@@ -16,3 +16,5 @@ export const miniPostStyles = () => {
     },
   }))()
 }
+
+export default miniPostStyles

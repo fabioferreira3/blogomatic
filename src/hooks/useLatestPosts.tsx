@@ -4,9 +4,9 @@ import _ from "lodash"
 
 import { normalizePosts } from "../normalizers/post"
 import { RootContext } from "../components/App"
-import {processPostData} from "./posthooks.helper";
+import processPostData from "./posthooks.helper";
 
-export const useLatestPosts = (ignore: any = [], limit: any = null) => {
+const useLatestPosts = (ignore: any = [], limit: any = null) => {
     const { locale } = useContext(RootContext)
     const rawFeaturedPostsData = useStaticQuery(graphql`
     query {
@@ -28,3 +28,5 @@ export const useLatestPosts = (ignore: any = [], limit: any = null) => {
     )
     return processPostData(latestPostsData, ignore, limit)
 }
+
+export default useLatestPosts

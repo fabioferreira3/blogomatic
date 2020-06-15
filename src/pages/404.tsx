@@ -1,9 +1,10 @@
 import React from "react"
-import { Grid, Typography } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 
 import Seo from "../components/Seo"
-import { MainLayout } from "../layouts/MainLayout"
-import { App } from "../components/App"
+import MainLayout from "../layouts/MainLayout"
+import App from "../components/App"
 
 const NotFoundPage: React.FC<any> = () => {
 

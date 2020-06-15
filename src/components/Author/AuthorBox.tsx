@@ -1,12 +1,14 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { Box, Grid, Typography } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 
 import { authorBoxStyles } from "./AuthorBox.styles"
-import { ShareActions } from "../Common/ShareActions"
+import ShareActions from "../Common/ShareActions"
 
-export const AuthorBox: React.FC = () => {
+const AuthorBox: React.FC = () => {
   const classes = authorBoxStyles()
 
   const authorImageQuery = graphql`
@@ -47,3 +49,5 @@ export const AuthorBox: React.FC = () => {
     </Grid>
   )
 }
+
+export default AuthorBox

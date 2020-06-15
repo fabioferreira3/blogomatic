@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { normalizeCategories } from "../normalizers/categories"
 
-export const useCategories = () => {
+const useCategories = () => {
   const rawCategoriesData = useStaticQuery(graphql`
     query {
       allWordpressCategory(filter: { count: { gt: 0 } }) {
@@ -23,3 +23,5 @@ export const useCategories = () => {
 
   return categoriesData
 }
+
+export default useCategories

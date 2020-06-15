@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const squarePostStyles = () => {
+const squarePostStyles = () => {
   return makeStyles(theme => ({
     wrapper: {
       position: "relative",
@@ -33,3 +33,5 @@ export const squarePostStyles = () => {
     },
   }))()
 }
+
+export default squarePostStyles

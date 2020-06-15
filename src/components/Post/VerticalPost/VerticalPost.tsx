@@ -1,23 +1,21 @@
-import React, { useContext, useEffect } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
+import React, { useContext } from "react"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
 import parse from "html-react-parser"
 
-import { PostActionButton } from "../../Common/PostActionButton"
-import { verticalPostStyles } from "./VerticalPost.styles"
-import { PostTimestamp } from "../../Common/PostTimestamp"
-import { PostAuthor } from "../../Common/PostAuthor"
+import PostActionButton from "../../Common/PostActionButton"
+import verticalPostStyles from "./VerticalPost.styles"
+import PostTimestamp from "../../Common/PostTimestamp"
+import PostAuthor from "../../Common/PostAuthor"
 import { RootContext } from "../../App"
 
-export const VerticalPost: React.FC<any> = props => {
+const VerticalPost: React.FC<any> = props => {
   const { author, featuredImage, createdAt, title, summary, slug } = props
   const { textContent } = useContext(RootContext)
   const classes = verticalPostStyles()
-
-  useEffect(() => {
-  //  console.log(`VERTICAL LARGE POST:: ${title} rendered`)
-  })
 
   return (
     <Grid container item direction={"column"} className={classes.wrapper}>
@@ -67,3 +65,5 @@ export const VerticalPost: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default VerticalPost

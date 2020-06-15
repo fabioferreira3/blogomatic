@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-export const Logo: React.FC<any> = () => {
+const Logo: React.FC<any> = () => {
   const rawImageLogoData = useStaticQuery(graphql`
     query {
       wordpressWpLogo {
@@ -24,3 +24,5 @@ export const Logo: React.FC<any> = () => {
     <Img fluid={logoImage.childImageSharp.fluid} style={{ width: "100%" }} />
   )
 }
+
+export default Logo

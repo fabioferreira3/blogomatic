@@ -1,7 +1,7 @@
 import { withStyles } from "@material-ui/core/styles"
-import { Button } from "@material-ui/core"
+import Button from "@material-ui/core/Button"
 
-export const PostActionButton = withStyles(theme => ({
+const PostActionButton = withStyles(theme => ({
   root: {
     fontSize: 14,
     background: theme.palette.secondary.main,
@@ -18,3 +18,5 @@ export const PostActionButton = withStyles(theme => ({
     },
   },
 }))(Button)
+
+export default PostActionButton

@@ -1,9 +1,9 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
 
-import { HorizontalPost } from "../Post/HorizontalPost/HorizontalPost"
+import HorizontalPost from "../Post/HorizontalPost/HorizontalPost"
 
-export const HorizontalPosts: React.FC<any> = ({ posts }) => {
+const HorizontalPosts: React.FC<any> = ({ posts }) => {
   return (
     <Grid container item direction={"column"} style={{ padding: 20 }}>
       {posts &&
@@ -13,3 +13,5 @@ export const HorizontalPosts: React.FC<any> = ({ posts }) => {
     </Grid>
   )
 }
+
+export default HorizontalPosts

@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const DrawerNavMenu: React.FC<any> = ({ items }) => {
+const DrawerNavMenu: React.FC<any> = ({ items }) => {
   const classes = useStyles()
   const [state, setState] = React.useState({ right: false })
 
@@ -94,3 +94,5 @@ export const DrawerNavMenu: React.FC<any> = ({ items }) => {
     </div>
   )
 }
+
+export default DrawerNavMenu

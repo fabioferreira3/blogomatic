@@ -1,18 +1,18 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
 
 import Seo from "../components/Seo"
-import { App } from "../components/App"
-import { MainLayout } from "../layouts/MainLayout"
-import { useFeaturedPosts } from "../hooks/useFeaturedPosts"
-import { MiniPosts } from "../components/PostWrappers/MiniPosts"
-import { HorizontalPosts } from "../components/PostWrappers/HorizontalPosts"
-import { SquarePostsVertical } from "../components/PostWrappers/SquarePostsVertical"
-import { SquarePostsHorizontal } from "../components/PostWrappers/SquarePostsHorizontal"
-import { SmallPostsVertical } from "../components/PostWrappers/SmallPostsVertical"
-import { SmallPostsHorizontal } from "../components/PostWrappers/SmallPostsHorizontal"
-import { VerticalPosts } from "../components/PostWrappers/VerticalPosts"
-import {useLatestPosts} from "../hooks/useLatestPosts";
+import App from "../components/App"
+import MainLayout from "../layouts/MainLayout"
+import useFeaturedPosts from "../hooks/useFeaturedPosts"
+import MiniPosts from "../components/PostWrappers/MiniPosts"
+import HorizontalPosts from "../components/PostWrappers/HorizontalPosts"
+import SquarePostsVertical from "../components/PostWrappers/SquarePostsVertical"
+import SquarePostsHorizontal from "../components/PostWrappers/SquarePostsHorizontal"
+import SmallPostsVertical from "../components/PostWrappers/SmallPostsVertical"
+import SmallPostsHorizontal from "../components/PostWrappers/SmallPostsHorizontal"
+import VerticalPosts from "../components/PostWrappers/VerticalPosts"
+import useLatestPosts from "../hooks/useLatestPosts";
 
 const Index: React.FC<any> = () => {
   const mainPosts = useLatestPosts(null, 6)

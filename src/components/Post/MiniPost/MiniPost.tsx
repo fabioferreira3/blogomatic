@@ -1,19 +1,17 @@
-import React, { useEffect } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
+import React from "react"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import Img from "gatsby-image"
 import { Link, navigate } from "gatsby"
 import parse from "html-react-parser"
 
-import { miniPostStyles } from "./MiniPost.styles"
-import { PostTimestamp } from "../../Common/PostTimestamp"
+import miniPostStyles from "./MiniPost.styles"
+import PostTimestamp from "../../Common/PostTimestamp"
 
-export const MiniPost: React.FC<any> = props => {
+const MiniPost: React.FC<any> = props => {
   const classes = miniPostStyles()
   const { featuredImage, createdAt, slug, title } = props
-
-  useEffect(() => {
-    //  console.log(`MINI POST:: ${title} rendered`)
-  })
 
   return (
     <Grid container wrap={"nowrap"} justify={"center"}>
@@ -53,3 +51,5 @@ export const MiniPost: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default MiniPost

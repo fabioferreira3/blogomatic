@@ -1,8 +1,9 @@
-import { Grid } from "@material-ui/core"
-import { SquarePost } from "../Post/SquarePost/SquarePost"
 import React from "react"
 
-export const SquarePostsVertical: React.FC<any> = ({ posts, hasOverlay }) => {
+import Grid from "@material-ui/core/Grid"
+import SquarePost from "../Post/SquarePost/SquarePost"
+
+const SquarePostsVertical: React.FC<any> = ({ posts, hasOverlay }) => {
   return (
     <>
       {posts &&
@@ -16,3 +17,5 @@ export const SquarePostsVertical: React.FC<any> = ({ posts, hasOverlay }) => {
     </>
   )
 }
+
+export default SquarePostsVertical

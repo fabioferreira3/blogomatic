@@ -1,6 +1,6 @@
 import React from "react"
 
-export const BlackOverlay: React.FC<any> = () => {
+const BlackOverlay: React.FC<any> = () => {
   return (
     <div
       style={{
@@ -14,3 +14,5 @@ export const BlackOverlay: React.FC<any> = () => {
     />
   )
 }
+
+export default BlackOverlay

@@ -1,23 +1,21 @@
-import React, { useContext, useEffect } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
+import React, { useContext } from "react"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import { Link, navigate } from "gatsby"
 import Img from "gatsby-image"
 import parse from "html-react-parser"
 
-import { horizontalPostStyles } from "./HorizontalPost.styles"
-import { PostActionButton } from "../../Common/PostActionButton"
-import { PostTimestamp } from "../../Common/PostTimestamp"
-import { PostAuthor } from "../../Common/PostAuthor"
+import horizontalPostStyles from "./HorizontalPost.styles"
+import PostActionButton from "../../Common/PostActionButton"
+import PostTimestamp from "../../Common/PostTimestamp"
+import PostAuthor from "../../Common/PostAuthor"
 import { RootContext } from "../../App"
 
-export const HorizontalPost: React.FC<any> = props => {
+const HorizontalPost: React.FC<any> = props => {
   const { author, featuredImage, createdAt, slug, summary, title } = props
   const { textContent } = useContext(RootContext)
   const classes = horizontalPostStyles()
-
-  useEffect(() => {
-   // console.log(`HORIZONTAL POST:: ${title} rendered`)
-  })
 
   return (
     <Grid container item className={classes.wrapper}>
@@ -66,3 +64,5 @@ export const HorizontalPost: React.FC<any> = props => {
     </Grid>
   )
 }
+
+export default HorizontalPost

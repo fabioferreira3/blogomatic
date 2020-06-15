@@ -1,11 +1,13 @@
 import React, { useState } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
 import NumberFormat from "react-number-format"
 import _ from "lodash"
 
 import "./SimuladorPoupanca.css"
-import { simuladorPoupancaStyles } from "./SimuladorPoupanca.styles"
-import { ShareActions } from "../Common/ShareActions"
+import simuladorPoupancaStyles from "./SimuladorPoupanca.styles"
+import ShareActions from "../Common/ShareActions"
 
 const selic = 3
 const yearYield = selic * 0.7
@@ -68,7 +70,7 @@ const Yields: React.FC<any> = props => {
   )
 }
 
-export const SimuladorPoupanca: React.FC<any> = () => {
+const SimuladorPoupanca: React.FC<any> = () => {
   const classes = simuladorPoupancaStyles()
   const [inputYield, setInputYield] = useState<any>(0)
   return (
@@ -129,3 +131,5 @@ export const SimuladorPoupanca: React.FC<any> = () => {
     </Grid>
   )
 }
+
+export default SimuladorPoupanca

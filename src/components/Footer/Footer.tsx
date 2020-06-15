@@ -10,16 +10,16 @@ import {
 import { withStyles } from "@material-ui/styles"
 import { navigate } from "gatsby"
 
-import { useFeaturedPosts } from "../../hooks/useFeaturedPosts"
-import { useCategories } from "../../hooks/useCategories"
-import { MiniPost } from "../Post/MiniPost/MiniPost"
-import { Logo } from "../Logo/Logo"
-import { footerStyles } from "./Footer.styles"
-import { useSiteMetadata } from "../../hooks/useSiteMetadata"
+import useFeaturedPosts from "../../hooks/useFeaturedPosts"
+import useCategories from "../../hooks/useCategories"
+import useLatestPosts from "../../hooks/useLatestPosts";
+import useSiteMetadata from "../../hooks/useSiteMetadata"
+import MiniPost from "../Post/MiniPost/MiniPost"
+import Logo from "../Logo/Logo"
+import footerStyles from "./Footer.styles"
 import { RootContext } from "../App"
-import {useLatestPosts} from "../../hooks/useLatestPosts";
 
-export const Footer: React.FC = () => {
+const Footer: React.FC = () => {
   const classes = footerStyles()
   const featuredPosts = useFeaturedPosts(null, 3)
   const latestPosts = useLatestPosts(null, 3)
@@ -133,3 +133,5 @@ const CategoryLink = withStyles(theme => ({
 }))(({ classes, content }: any) => (
   <ListItemText primary={content} classes={classes} />
 ))
+
+export default Footer

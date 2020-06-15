@@ -3,7 +3,7 @@ import { Typography } from "@material-ui/core"
 import ScheduleIcon from "@material-ui/icons/Schedule"
 import { useTheme } from "@material-ui/core/styles"
 
-export const PostTimestamp: React.FC<any> = ({ date, displayIcon = false }) => {
+const PostTimestamp: React.FC<any> = ({ date, displayIcon = false }) => {
   const theme = useTheme()
   return (
     <>
@@ -25,3 +25,5 @@ export const PostTimestamp: React.FC<any> = ({ date, displayIcon = false }) => {
     </>
   )
 }
+
+export default PostTimestamp

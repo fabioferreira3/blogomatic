@@ -1,5 +1,7 @@
 import { withStyles } from "@material-ui/core/styles"
-import { Button, ListItemIcon, MenuItem } from "@material-ui/core"
+import Button from "@material-ui/core/Button"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import MenuItem from "@material-ui/core/MenuItem"
 
 export const StyledMenuItem = withStyles(theme => ({
   root: {

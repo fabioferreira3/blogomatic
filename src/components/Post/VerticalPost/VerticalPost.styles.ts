@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const verticalPostStyles = () => {
+const verticalPostStyles = () => {
   return makeStyles(theme => ({
     wrapper: {
       marginBottom: 50,
@@ -34,3 +34,5 @@ export const verticalPostStyles = () => {
     visibilityIcon: { fontSize: 12 },
   }))()
 }
+
+export default verticalPostStyles

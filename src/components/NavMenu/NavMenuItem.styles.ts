@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const navMenuItemStyles = () => {
+const navMenuItemStyles = () => {
   return makeStyles(theme => ({
     submenu: {
       position: "absolute",
@@ -18,3 +18,5 @@ export const navMenuItemStyles = () => {
     },
   }))()
 }
+
+export default navMenuItemStyles

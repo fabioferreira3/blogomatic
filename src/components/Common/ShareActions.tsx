@@ -9,7 +9,7 @@ import {
   LinkedinShareButton,
   WhatsappShareButton,
 } from "react-share"
-import { Box } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
 import { makeStyles } from "@material-ui/core/styles"
 
 const styles = () => {
@@ -35,7 +35,7 @@ const styles = () => {
   }))()
 }
 
-export const ShareActions: React.FC<any> = ({ size, noColor }) => {
+const ShareActions: React.FC<any> = ({ size, noColor }) => {
   const classes = styles()
   const [currentPage, setCurrentPage] = useState<any>(null)
 
@@ -98,3 +98,5 @@ export const ShareActions: React.FC<any> = ({ size, noColor }) => {
     </Box>
   )
 }
+
+export default ShareActions

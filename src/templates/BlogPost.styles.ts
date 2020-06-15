@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const blogPostStyles = () => {
+const blogPostStyles = () => {
   return makeStyles(theme => ({
     postWrapper: { padding: 25 },
     mainImageWrapper: { height: "50vh", borderRadius: 10, overflow: "hidden" },
@@ -28,3 +28,5 @@ export const blogPostStyles = () => {
     },
   }))()
 }
+
+export default blogPostStyles

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const smallPostStyles = () => {
+const smallPostStyles = () => {
   return makeStyles(theme => ({
     title: { marginTop: 10, marginBottom: 10 },
     mainImageWrapper: {
@@ -14,3 +14,5 @@ export const smallPostStyles = () => {
     timestampWrapper: { marginTop: 10 },
   }))()
 }
+
+export default smallPostStyles

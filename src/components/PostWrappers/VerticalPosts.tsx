@@ -1,7 +1,8 @@
 import React from "react"
-import { VerticalPost } from "../Post/VerticalPost/VerticalPost"
 
-export const VerticalPosts: React.FC<any> = ({ posts }) => {
+import VerticalPost from "../Post/VerticalPost/VerticalPost"
+
+const VerticalPosts: React.FC<any> = ({ posts }) => {
   return (
     <>
       {posts &&
@@ -11,3 +12,5 @@ export const VerticalPosts: React.FC<any> = ({ posts }) => {
     </>
   )
 }
+
+export default VerticalPosts

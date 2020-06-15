@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { normalizeMainMenu } from "../normalizers/mainMenu"
 
-export const useMainMenu = () => {
+const useMainMenu = () => {
   const rawMainMenuData = useStaticQuery(graphql`
     query {
       wordpressSiteMetadata {
@@ -21,3 +21,5 @@ export const useMainMenu = () => {
 
   return normalizeMainMenu(rawMenuItemsData, siteUrl, "wp")
 }
+
+export default useMainMenu

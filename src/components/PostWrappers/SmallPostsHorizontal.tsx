@@ -1,8 +1,8 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
-import { SmallPost } from "../Post/SmallPost/SmallPost"
+import Grid from "@material-ui/core/Grid"
+import SmallPost from "../Post/SmallPost/SmallPost"
 
-export const SmallPostsHorizontal: React.FC<any> = ({ posts }) => {
+const SmallPostsHorizontal: React.FC<any> = ({ posts }) => {
   return (
     <>
       {posts &&
@@ -26,3 +26,5 @@ export const SmallPostsHorizontal: React.FC<any> = ({ posts }) => {
     </>
   )
 }
+
+export default SmallPostsHorizontal

@@ -1,8 +1,8 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
-import { SquarePost } from "../Post/SquarePost/SquarePost"
+import Grid from "@material-ui/core/Grid"
+import SquarePost from "../Post/SquarePost/SquarePost"
 
-export const SquarePostsHorizontal: React.FC<any> = ({ posts }) => {
+const SquarePostsHorizontal: React.FC<any> = ({ posts }) => {
   return (
     <>
       {posts &&
@@ -23,3 +23,5 @@ export const SquarePostsHorizontal: React.FC<any> = ({ posts }) => {
     </>
   )
 }
+
+export default SquarePostsHorizontal

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles"
 
-export const horizontalPostStyles = () => {
+const horizontalPostStyles = () => {
   return makeStyles(theme => ({
     wrapper: { marginBottom: 25 },
     contentWrapper: {
@@ -29,3 +29,5 @@ export const horizontalPostStyles = () => {
     link: { textDecoration: "none", boxShadow: "none" },
   }))()
 }
+
+export default horizontalPostStyles
